@@ -1,6 +1,0 @@
-/* pages/demo/flex-direction.wxss */
-.item{
-    background-color: #CCCCCC;
-    width:100rpx;
-    margin:10rpx;
-}

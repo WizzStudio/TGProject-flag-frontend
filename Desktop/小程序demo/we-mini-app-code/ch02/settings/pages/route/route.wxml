@@ -1,4 +1,0 @@
-<!--route.wxml-->
-<view class="container">
-  <text>来自option的值为：{{option_id}}</text>
-</view>
