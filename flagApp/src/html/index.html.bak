@@ -1,0 +1,32 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="gb2312" />
+  <title>登录页</title>
+  <link rel="stylesheet" href="../css/bootstrap.css" />
+  <link rel="stylesheet" type="text/css" href="../css/index.css">
+</head>
+<body>
+    <div class="title">
+        <p>场地审批系统</p>
+    </div>
+    <div class="main">
+      <form method="post" action="save.php">
+        <div class="top">
+          <label for="username">管理员账号</label>
+        <input type="text" name="username"> <br>
+        </div>
+        <div class="buttom">
+          <label for="pass">&nbsp;&nbsp;密&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;码&nbsp;&nbsp;&nbsp;</label>
+        <input class="password" type="password" name="pass"> <br>
+        </div>
+        <div class="submit">
+        	  <a href="星火众创空间场地首页.html" class="btn btn-info btn-lg">登  录</a>
+       
+        </div>
+      </form>
+    </div>
+    
+    <script src="../js/index.js"> </script>
+</body>
+</html>
