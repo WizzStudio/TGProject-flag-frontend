@@ -1,0 +1,60 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>星火众创空间场地首页</title>
+  <link rel="stylesheet" href="../css/bootstrap.css" />
+  <link rel="stylesheet" type="text/css" href="../css/星火众创空间场地首页.css">
+</head>
+<body>
+  <header class="title">
+      <p>场地审批系统</p>
+      <div class="button">
+         <button class="btn btn-info btn-lg">查看项目进度</button>
+      </div>
+  </header>
+ <div class="body">
+  <div class="main">
+    <div class="status">
+      <button selected="true" id="noReview" class="no btn btn-warning btn-lg">未审核</button>
+      <button selected="false" id="yesReview" class="yes btn btn-warning btn-lg">已审核</button>
+    </div>
+    <div class="top">
+      <textarea class="content" rows=8   name=s1   cols=50   onpropertychange= "this.style.posHeight=this.scrollHeight "></textarea>
+        <div class="submit">
+          <button class="onload btn btn-warning  btn-lg">上 传</button>
+        </div>
+    </div>
+    <div class="maintable table-responsive">
+        <table class="table" id="table">
+          <thead>
+            <tr class="head">
+              <th>地点名称</th>
+              <th>申请数量</th>
+              <th>详细信息</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>会务室1</td>
+              <td>待填</td>
+              <td><a href="会务室详情页.html">查看</a></td></tr>
+            <tr>
+              <td>会务室2</td>
+              <td>待填</td>
+              <td><a href="会务室详情页.html">查看</a></td></tr>
+            <tr>
+              <td>会务室3</td>
+              <td>待填</td>
+              <td><a href="会务室详情页.html">查看</a></td></tr>
+            <tr>
+              <td>星火众创空间入驻申请</td>
+              <td>待填</td>
+              <td><a href="入驻申请页.html">查看</a></td></tr>
+          </tbody>
+        </table>
+    </div>
+  </div>
+ </div>
+</body>
+<script type="text/javascript"  src="../js/星火众创空间场地首页.js" charset="utf-8" ></script>
+</html>
