@@ -1,0 +1,28 @@
+/* *index.wxss**/
+.box {
+  margin: 10px;
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+  border: solid 1px grey;
+}
+
+.room {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin: 10px;
+}
+
+.room_number {
+    /* border-bottom: solid 1px grey; */
+    margin: auto;
+    /* height: 50px; */
+    width: 200px;
+    border: 1rpx solid grey;
+}
+.btn_yuyue {
+     float: right;
+}

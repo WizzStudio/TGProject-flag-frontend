@@ -1,0 +1,28 @@
+.bt_style {
+    width: 60%;
+    margin: 30px;
+}
+
+.bt_style1 {
+    width: 60%;
+    margin: 30px;
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+  padding: 40rpx;
+
+}
+.logs_view {
+  display: flex;
+  flex-direction: column;
+}
+.log-item {
+  display: flex;
+  flex-direction: row;
+  margin: 10px;
+  padding:10px 0;
+  width: 60%;
+  border: 1px solid grey;
+}

@@ -1,0 +1,25 @@
+.image_frame {
+    margin: 10px;
+    border: 1px solid grey;
+    height: 100px;
+}
+
+.teacher {
+  border: 1px solid grey;
+  margin: auto;
+  width: 320px;
+  height: 200px;
+}
+
+.coming{
+    margin: 20px;
+}
+
+.comed{
+    margin: 20px;
+}
+
+.back {
+    margin-top: 40px;
+    width: 50%;
+}

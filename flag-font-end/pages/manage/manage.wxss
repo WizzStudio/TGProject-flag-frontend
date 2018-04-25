@@ -1,0 +1,44 @@
+.content {
+    margin:10px;
+}
+
+.input {
+    width: 90%;
+    border: solid  #787878 1px;
+    margin: 10px;
+}
+.input_oneline {
+  width: 90%;
+  border: 1px solid #787878;
+  margin: 20px;
+}
+.time_row{
+    display: flex;
+    flex-direction: row;
+}
+.picker {
+    border: 1px solid grey;
+    text-align: center;
+    height: 30px;
+    margin:20px;
+}
+.confine {
+    border: solid #787878  1px;
+}
+
+.input_other {
+    width: 90%;
+    border: solid #787878 1px;
+    height: 100px;
+    margin: 20px;
+}
+
+.section1 {
+    width: 90%;
+    height: 100px;
+    border: 1px gray solid;
+    margin-left:10px;
+}
+.send {
+    margin: 40px 0;
+}

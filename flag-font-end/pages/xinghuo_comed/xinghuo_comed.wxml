@@ -1,0 +1,8 @@
+<view class='container'>
+    <view class='section'>请先进行身份认证：</view>
+    <input name='input' class='input' placeholder='请输入身份认证码' bindblur='confine'></input>
+    <view class='section1'>
+        <view>{{message}}</view>
+    </view>
+    <button class='bt_style' type='primary' bindtap='navigation' disabled='{{disabled}}'>继续</button>
+</view>

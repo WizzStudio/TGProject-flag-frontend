@@ -1,0 +1,9 @@
+<!--index.wxml-->
+<view class="box">
+  <view calss= "section" wx:for="{{room}}" wx:key='index'>
+   <view class="room">
+      <view class="room_number">{{item.name}}{{item.id}}</view>
+      <button bindgetuserinfo='detail' data-pid="{{item.id}}" type='primary' size='primarySize' bindtap='book' class='btn_yuyue'>{{yuyue}}</button>
+   </view>
+  </view>
+</view>

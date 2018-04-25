@@ -1,0 +1,8 @@
+<!-- 预约管理 -->
+    <view class='room'>
+      <block class="section" wx:for="{{room}}" wx:key='index'>
+        <view class='room_number'>{{item.optVal.placeName}}</view>
+        <!-- <view class='room_book_message'>{{room_book_message}}</view> -->
+        <button class= 'btn_view' bindtap='proceed' class='section' type='primary' data-optKey = '{{item.optKey}}'>{{view}}</button>
+      </block>
+    </view>

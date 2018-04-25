@@ -1,0 +1,73 @@
+<view class=' containerBox'>
+    <view class='notice'>
+        <view>注意事项如下：</view>
+        <text class="content">{{notice}}</text>
+    </view>
+    <view class="section">
+        <view class="register">星火众创空间会务场地审批登记:</view>
+    </view>
+    <form bindsubmit='formSubmit' bindreset='formReset'>
+        <view class='section'>
+            <view class='content'>团队名称: </view>
+            <input class='put' name='teamName'></input>
+        </view>
+        <view class='section'>
+            <view class='content'>活动名称: </view>
+            <input class='put' name='activityName'></input>
+        </view>
+        <view class='section'>
+            <view class='content'>活动形式:</view>
+            <input class='put' name='activityForm'></input>
+        </view>
+        <view class='section'>
+            <view class='content'>借用日期:</view>
+            <picker name = 'date_Time' class="picker" mode="date" start="{{dateTime}}" end="2030-09-01" value="{{dateTime}}" bindchange="change_date_Time">
+              <view class="dateTime"> {{dateTime}} </view>
+            </picker>
+        </view>
+        <view class='section'>
+            <view class='content'>借用时间段</view>
+              <view class="picker_style">
+                <picker name = 'time_startTime' class="picker" mode="time" start="09:00" end="21:30" value="{{dayTime}}" bindchange="change_time_startTime" >
+                  <view class="dateTime">{{dayTime}}</view>
+                </picker>
+                <view>————</view>
+                <picker name = 'time_endTime' class="picker" mode="time" start="09:00" end="21:30" value="{{dayTime1}}" bindchange="change_time_endTime">
+                  <view class="dateTime">{{dayTime1}}</view>
+                </picker>
+              </view>
+        </view>
+        <view class='section'>
+            <view class='content'>借用房室:</view>
+            <picker name = 'cid' bindchange = 'get_room' value="{{index}}" range = "{{room}}" range-key= "optKey">
+                <view class='put dateTime'> {{room[index]["optKey"]}} </view>
+            </picker>
+        </view>
+        <view class='section'>
+            <view class='content'>参与人数:</view>
+            <view class='section2'>
+                <view class='content1'>校内人数：</view>
+                <input class='put1' name='peopleSchoolIn'></input>
+                <view class='content1'>校外人数：</view>
+                <input class='put1' name='peopleSchoolOut'></input>
+            </view>
+        </view>
+        <view class='section'>
+            <view class='content'>安全措施：</view>
+           <textarea class='put' name='securityMeasure' autofocus></textarea>
+        </view>
+        <view class='section'>
+           <view class='content'>安全负责人：</view>
+           <input class='put' name='securityAdmin'></input>
+        </view>
+        <view class='section'>
+            <view class='content'>安全负责人联系电话：</view>
+            <input class='put' name='phone'></input>
+        </view>
+        <view class='section'>
+            <view class='content'>是否借用设备及借用用途：</view>
+            <textarea class='put' name='equipment' autofocus></textarea>
+            <button form-type='submit' class='section' type='primary'>预约</button>
+        </view>
+    </form>
+</view>

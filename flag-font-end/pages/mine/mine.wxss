@@ -1,0 +1,26 @@
+.container {
+    margin: 20px;
+}
+
+.userinfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.userinfo-avatar {
+  width: 128rpx;
+  height: 128rpx;
+  margin: 20rpx;
+  border-radius: 50%;
+}
+
+.section {
+    margin-top:50px;
+}
+.type_button{
+    border-radius: 10px;
+    margin: 20px;
+    padding: 0  60px;
+
+} 

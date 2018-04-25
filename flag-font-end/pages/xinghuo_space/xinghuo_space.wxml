@@ -1,0 +1,11 @@
+<view class='container'>
+    <button type='primary' class='bt_style' bindtap='navigation1'>会务室审批</button>
+
+    <!-- 2.0版本 <button class='bt_style1' type='primary' bindtap='navigation2'>项目进度提交</button> -->
+    <view class='section'>
+        <view class="logs_view" wx:for="{{messages}}" wx:for-item="log" wx:key='index'>
+            <view class="log-item">{{log[index]["status"]}}</view>
+        </view>
+    </view>
+    <button class='bt_style' type='primary' bindtap ='navigation3'>返回首页</button>
+</view>

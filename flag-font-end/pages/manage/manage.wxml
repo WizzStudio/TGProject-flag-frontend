@@ -1,0 +1,41 @@
+<form bindsubmit="formSubmit" bindreset="formReset">
+
+    <view  class='content'>身份验证码：</view>
+        <input type="number" name="number" class='confine input' placeholder='请输入身份验证码' bindblur='confine'></input>
+
+    <view class='content'>借用者单位：</view>
+        <input bindtap='' type="text" name="department" placeholder='学校，社团，学生组织及校内各部门' class='input'></input>
+
+    <view class="section">
+        <!-- 传时间时将日期与时间段连一起 -->
+      <view class='content' >选择日期:</view>
+          <picker  name='date' mode="date" value="{{date}}" start="Date().now" end="2030-09-01" bindchange="bindDateChange">
+          <view class="picker">  {{date}}  </view>
+          </picker>
+      <view class='content'>时间段:</view>
+      <view calss='time_row'>
+          <picker name = 'startTime' mode="time" value="{{time}}" start="09:00" end="21:30" bindchange="bindTimeChange">
+              <view class="picker"> {{time}}</view>
+          </picker>
+          <picker name='endTime' mode="time" value="{{time}}" start="09:00" end="21:30" bindchange="bindTimeChange_other">
+              <view class="picker">{{time_other}}</view>
+          </picker>
+      </view>
+    </view>
+
+    <view class='content'>借用事由:</view>
+        <input name='people' type="number" class='input_oneline' placeholder ='参与对象与具体人数' autofocus></input>
+
+        <textarea name="activity" class="input_other" placeholder='请详细填写活动主题，活动内容' autofocus > </textarea>
+
+        <textarea name='prop' type="text" class='input_other' placeholder = '道具使用声明' autofocus></textarea>
+
+        <textarea name='content' class='input_other' placeholder ='宣传品内容说明并注明是否在室内使用' autofocus></textarea>
+
+    <view class='content'>活动负责人及其联系电话:</view>
+    <input name='admin' class='input_oneline' placeholder='填写活动负责人' autofocus></input>
+
+    <input name='phone' class='input_oneline' placeholder='填写活动负责人电话' autofocus></input>
+
+    <button class='send' form-type='submit' data-pid='{{pid}}' disabled='{{disabled}}' type='primary'>提交申请</button>
+</form>

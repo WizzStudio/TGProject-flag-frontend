@@ -1,0 +1,124 @@
+<view calss='containerBox'>
+<form bindsubmit='formSubmit'>
+    <view class='section'>
+        <view class='msg'>一.申请人档案</view>
+        <view class='content'>
+            <text class='txt'>姓名：</text>
+            <input  class='input' type='text' name='name' placeholder=''></input>
+        </view>
+        <view class='content'>
+            <text class='txt'>学号：</text>
+            <input  class='input' type='number' name='studentId' placeholder=''></input>
+        </view>
+        <view class='content'>
+            <text class='txt'>学院：</text>
+            <input  class='input' type='text' name='academy' placeholder=''></input>
+        </view>
+        <view class='content'>
+            <text class='txt'>专业：</text>
+            <input  class='input' type='text' name='discipline' placeholder=''></input>
+        </view>
+        <view class='content'>
+            <text class='txt'>电话：</text>
+            <input  class='input' type='number' name='phone' placeholder=''></input>
+        </view>
+        <view class='content'>
+            <text class='txt'>QQ：</text>
+            <input  class='input_qq' type='number' name='qq' placeholder=''></input>
+        </view>
+        <view class='content'>
+            <text class='txt'>邮箱：</text>
+            <input  class='input' type='number' name='email' placeholder=''></input>
+        </view>
+        <view class='content'>
+            <text class='txt_adress'>宿舍地址：</text>
+            <input  class='input' type='text' name='dormitory' placeholder=''></input>
+        </view>
+    </view>
+
+    <view class='section'>
+        <view class='msg'>二.团队资料</view>
+        <view class='content'>
+            <text class='txt'>名称：</text>
+            <input class='input' type='text' name='teamName' placeholder=''></input>
+        </view>
+        <view class='content'>
+            <text class='txt'>网址/微信：</text>
+            <input class='input_weixin' type='number' name='website' placeholder=''></input>
+        </view>
+        <view class='content'>
+            <text class='txt'>专业邻域：</text>
+            <radio-group name = 'field' class='radio-group' bindchange='radioChange_field'>
+                <label class='radio' wx:for="{{profession}}" wx:key="">
+                    <radio value='{{item.value}}' checked='{{item.checked}}'>{{item.value}}</radio>
+                </label>
+            </radio-group>
+        </view>
+        <view class='content'>
+            <text class='txt'>运营方式：</text>
+            <radio-group  name = 'operations' class='radio-group' bindchange='radioChange_opreations'>
+                <label class='radio' wx:for='{{style}}' wx:key="">
+                    <radio value='{{item.value1}}' checked='{{item.checked}}'>{{item.value1}}</radio>
+                </label>
+            </radio-group>
+        </view>
+        <view class='content'>
+            <text class='txt'>其它成员：</text>
+        </view>
+        <view class='content'>
+            <text class= 'txt1'> 姓名 </text>
+            <text class= 'txt1'> 职务 </text>
+            <text class= 'txt1'> 联系方式 </text>
+            <text class= 'txt1'> 工作内容 </text>
+        </view>
+        <view class='content'>
+            <input class='input input_name' type='text' name= 'name1' placeholder=''></input>
+            <input class='input input_profession' type='text' name= 'position1' placeholder=''></input>
+            <input class='input' type='text' name= 'phone1' placeholder=''></input>
+            <input class='input input_content' type='text' name= 'job1' placeholder=''></input>
+        </view>
+        <view class='content'>
+            <input class='input input_name' type='text' name= 'name2' placeholder=''></input>
+            <input class='input input_profession' type='text' name= 'position2' placeholder=''></input>
+            <input class='input' type='text' name= 'phone2' placeholder=''></input>
+            <input class='input input_content' type='text' name= 'job2' placeholder=''></input>
+        </view>
+        <view class='content'>
+            <input class='input input_name' type='text' name= 'name3' placeholder=''></input>
+            <input class='input input_profession' type='text' name= 'position3' placeholder=''></input>
+            <input class='input ' type='text' name= 'phone3' placeholder=''></input>
+            <input class='input input_content' type='text' name= 'job3' placeholder=''></input>
+        </view>
+        <view class='content'>
+            <input class='input input_name' type='text' name= 'name4' placeholder=''></input>
+            <input class='input input_profession' type='text' name= 'position4' placeholder=''></input>
+            <input class='input' type='text' name= 'phone4' placeholder=''></input>
+            <input class='input input_content' type='text' name= 'job4' placeholder=''></input>
+        </view>
+    </view>
+
+    <view class='section'>
+        <view class='msg'>三.项目详情</view>
+        <view class='content1'>
+            <text class='txt'>1.项目背景，目标，意义，市场前景:</text>
+            <textarea name='discription' class='txt_area' auto-focus></textarea>
+        </view>
+        <view class='content1'>
+            <text class='txt'>2.项目内容说明，创信性，是否获奖:</text>
+            <textarea name='content' class='txt_area' auto-focus></textarea>
+        </view>
+        <view class='content1'>
+            <text class='txt'>3.项目运营方案及实施方案：</text>
+            <textarea name='plan' class='txt_area' auto-focus></textarea>
+        </view>
+        <view class='content1'>
+            <text class='txt'>4.备注：</text>
+            <textarea name='other' class='txt_area1' auto-focus></textarea>
+        </view>
+    </view>
+    <view class='btn'>
+        <button class='bt_style' type='primary' form-type='submit' size="mini">提交申请</button>
+    </view>
+
+</form>
+</view>

@@ -1,0 +1,38 @@
+<!--indentity.wxml-->
+<view class="box">
+    <form bindsubmit='formSubmit' bindreset='fromReset' name = 'form'>
+      <view class='section'>
+        <text>姓名：</text>
+        <input  name='name' value="{{name}}"  placeholder='请输入你的姓名' bindinput='input_name' class='input'></input>
+      </view>
+      <view class="section">
+        <text>学号：</text>
+        <input name='studentId' value="{{studenId}}" placeholder='请输入你的学号' type='number' bindinput='input_number' class='input'> </input>
+      </view>
+      <view class="section">
+        <view class='picker'>
+            <view>所属机构：</view>
+            <picker name='did' bindchange='bindPickerChange_department' value='{{did}}' range='{{department}}' range-key="optKey">
+              <view class='picker_content' >{{department[did]["optKey"]}}
+              </view>
+            </picker>
+        </view>
+      </view>
+      <view class="section">
+        <view class='picker'>
+             <view>担任职务：</view>
+             <picker name='position'  bindchange='bindPickerChange' value='{{position}}' range='{{positions}}'>
+                <view class='picker_content' >{{positions[position]}}</view>
+             </picker>
+        </view>
+      </view>
+        <view class = "btn">
+          <view class="btn_section">
+            <button class='button' type='primary' form-type='submit' size='mini'>提交申请</button>
+          </view>
+          <view class="btn_section">
+            <button type ='primary' form-type='reset' class='button' disabled='{{disabled}}' size='mini' >信息修改</button>
+          </view>
+        </view>
+    </form>
+</view>

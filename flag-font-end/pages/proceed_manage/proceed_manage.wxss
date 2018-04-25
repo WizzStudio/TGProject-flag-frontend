@@ -1,0 +1,29 @@
+.container_box {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.bt_style{
+    position: relative;
+    float: right;
+    margin-top: 10px;
+    margin-left: 70%;
+    background-color: green;
+}
+
+.section {
+    display: flex;
+    flex-direction: row;
+    margin: 10px;
+}
+
+.content {
+    margin: auto;
+}
+.content1 {
+    margin: 10px;
+    border: 1px solid grey;
+    width: 200px;
+    height: auto;
+}

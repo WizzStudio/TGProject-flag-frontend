@@ -1,0 +1,45 @@
+.notice {
+    border: 1px solid grey;
+    width: 90%;
+    text-align: center;
+    height: 200px;
+    margin: 10px;
+}
+.register {
+  border-bottom: 1px solid grey;
+}
+.section {
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+    /* float: left; */
+}
+.content {
+    /* background-color: grey; */
+
+}
+.section2 {
+    display: flex;
+    flex-direction:row;
+    margin: 5px;
+}
+.put {
+    margin: auto;
+    /* margin:10px 0 10px 40px; */
+    width: 90%;
+    border: 1px solid grey;
+}
+.put1 {
+    width:70px;
+    border: 1px solid grey;
+}
+ .dateTime {
+   text-align: center;
+   margin: 5px 10px;
+   border: 1px solid grey;
+ }
+ .picker_style {
+   display: flex;
+   flex-direction: row;
+   justify-content: center;
+ }

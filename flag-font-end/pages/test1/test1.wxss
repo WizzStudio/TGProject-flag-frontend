@@ -1,0 +1,46 @@
+.msg {
+    margin-top: 10rpx;
+    text-align: center;
+    border-bottom: 1rpx solid grey;
+    color: grey;
+}
+.content {
+    display: flex;
+    flex-direction: row;
+    margin: 10rpx;
+}
+.content1 {
+    display: flex;
+    flex-direction: column;
+    margin: 10rpx;
+}
+.input {
+    position: relative;
+    border: 1rpx solid grey;
+    float: right;
+}
+.txt1 {
+    margin-right: 70rpx;
+}
+.input_name {
+    width: 300rpx;
+}
+.input_profession {
+    width: 300rpx;
+}
+.input_content {
+    width: 500rpx;
+}
+.txt_area {
+    border: 1rpx solid grey;
+    width: 700rpx;
+    height: 600rpx;
+}
+.txt_area1 {
+     border: 1rpx solid grey;
+     width: 700rpx;
+}
+
+.bt_style {
+    margin-top: 80rpx;
+}

@@ -1,0 +1,6 @@
+<view class='container'>
+    <view class='section'>
+        <text class='content'>申请已提交至星火众创空间，审核结束后会有人通知你。</text>
+    </view>
+    <button class='back' bindtap='navigationto'>返回首页</button>
+</view>

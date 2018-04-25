@@ -1,0 +1,17 @@
+.room
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    width: 90%;
+    margin: 10px;
+}
+.room_number
+{
+    margin: auto;
+    border: 1px solid #bff ;
+}
+.section {
+  margin: 10px;
+}

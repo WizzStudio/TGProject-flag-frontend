@@ -1,0 +1,21 @@
+<view class="container_box">
+    <button class="bt_style" data-optkey = "{{optkey}}" bindtap="cancle">取消预约</button>
+    <view class="section">
+        <view class='content'>申请教室</view>
+        <view class='content1'>{{placeName}}</view>
+    </view>
+    <view class='section'>
+        <view class='content'>审核状态</view>
+        <view class='content1'>{{status}}</view>
+    </view>
+
+    <view class='section'>
+        <view class='content'>活动日期</view>
+        <view class='content1'>{{date}}</view>
+    </view>
+    <view class='section'>
+        <view class='content'>    时间段   </view>
+        <view class='content1'>{{startTime}}--{{endTime}}</view>
+    </view>
+
+</view>

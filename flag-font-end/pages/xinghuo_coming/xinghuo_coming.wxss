@@ -1,0 +1,62 @@
+.msg {
+    margin-top: 10rpx;
+    text-align: center;
+    border-bottom: 1rpx solid grey;
+    color: grey;
+}
+.section {
+  display: flex;
+  flex-direction: column;
+}
+.content {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 10rpx;
+}
+.content1 {
+    display: flex;
+    flex-direction: column;
+    margin: 10rpx;
+}
+.input {
+    position: relative;
+    border: 1rpx solid grey;
+    float: right;
+}
+.input_qq {
+    border: 1px solid grey;
+}
+.input_adress .input_weixin {
+    border: 1px solid grey;
+  }
+.txt1 {
+    margin-right: 70rpx;
+}
+.input_name .input_profession{
+    width: 300rpx;
+}
+
+.input_content {
+    width: 500rpx;
+}
+.txt_area {
+    border: 1rpx solid grey;
+    width: 700rpx;
+    height: 600rpx;
+}
+.txt_area1 {
+     border: 1rpx solid grey;
+     width: 700rpx;
+}
+.btn {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+}
+.bt_style {
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+}

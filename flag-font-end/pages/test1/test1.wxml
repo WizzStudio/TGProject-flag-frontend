@@ -1,0 +1,137 @@
+    <view class="ad_popError" wx:if="{{popErrorMsg}}">{{popErrorMsg}}</view>  
+    <view class="ad_popFt">  
+    <form bindsubmit="goDetail" >  
+          <textarea class="ad_popArea" bindinput="commentTxtFn" focus="{{isPopOpen}}" placeholder="请输入留言内容"  placeholder-style="color:#cccccc;" name="textarea" />  
+      <view class="ad_popCout">  
+        <text class="one_star">你还可以输入</text>  
+        <text class="one_stars {{!!tips?'danger':''}}">{{commentTxtCount}}</text>  
+        <text class="one_star">字</text>  
+      </view>  
+      <button class="informBtn" form-type="submit">确认发布</button>  
+    </form>  
+    </view>  
+
+
+
+<!-- <view calss='container'>
+<form bindsubmit='formSubmit' >
+
+    <view class='section'>
+        <view class='msg'>一.申请人档案</view>
+        <view class='content'> 
+            <text class='txt'>姓名：</text>
+            <input  class='input' type='text' name='student_name' placeholder=''></input> 
+        </view>
+        <view class='content'> 
+            <text class='txt'>学号：</text>
+            <input  class='input' type='number' name='student_number' placeholder=''></input> 
+        </view>
+        <view class='content'> 
+            <text class='txt'>学院：</text>
+            <input  class='input' type='text' name='student_academy' placeholder=''></input> 
+        </view>
+        <view class='content'> 
+            <text class='txt'>专业：</text>
+            <input  class='input' type='text' name='student_profession' placeholder=''></input> 
+        </view>
+        <view class='content'> 
+            <text class='txt'>电话：</text>
+            <input  class='input' type='number' name='student_phone' placeholder=''></input> 
+        </view>
+        <view class='content'> 
+            <text class='txt'>QQ：</text>
+            <input  class='input' type='number' name='student_qq' placeholder=''></input> 
+        </view>
+        <view class='content'> 
+            <text class='txt'>邮箱：</text>
+            <input  class='input' type='number' name='student_mail' placeholder=''></input> 
+        </view>
+        <view class='content'> 
+            <text class='txt'>宿舍地址：</text>
+            <input  class='input' type='text' name='student_adress' placeholder=''></input> 
+        </view>
+    </view>
+
+    <view class='section'>
+        <view class='msg'>二.团队资料</view>
+        <view class='content'>
+            <text class='txt'>名称：</text>
+            <input class='input' type='text' name='team_name' placeholder=''></input>
+        </view>
+        <view class='content'>
+            <text class='txt'>网址/微信：</text>
+            <input class='input' type='number' name='team_adress' placeholder=''></input>
+        </view>
+        <view class='content'>
+            <text class='txt'>专业邻域：</text>
+            <radio-group class='radio-group' bindChange='radioChange'>
+                <label class='radio' wx:for="{{profession}}">
+                    <radio checked='{{item.checked}}'>{{item.value}}</radio>
+                </label>
+            </radio-group>
+        </view>
+        <view class='content'>
+            <text class='txt'>运营方式：</text>
+            <radio-group class='radio-group' ibndChange='radioChange'>
+                <label class='radio' wx:for='{{style}}'>
+                    <radio checked='{{item.checked}}'>{{item.value}}</radio>
+                </label>
+            </radio-group>
+        </view>
+        <view class='content'>
+            <text class='txt'>其它成员：</text>
+        </view>
+        <view class='content'>
+            <text class= 'txt1'> 姓名 </text>
+            <text class= 'txt1'> 职务 </text>
+            <text class= 'txt1'> 联系方式 </text>
+            <text class= 'txt1'> 工作内容 </text>
+        </view>
+        <view class='content'>
+            <input class='input input_name' type='text' name= 'other_name1' placeholder=''></input>
+            <input class='input input_profession' type='text' name= 'other_profession1' placeholder=''></input>
+            <input class='input' type='text' name= 'other_lianxi1' placeholder=''></input>
+            <input class='input input_content' type='text' name= 'other_work_content1' placeholder=''></input>
+        </view>
+        <view class='content'>
+            <input class='input input_name' type='text' name= 'other_name2' placeholder=''></input>
+            <input class='input input_profession' type='text' name= 'other_profession2' placeholder=''></input>
+            <input class='input' type='text' name= 'other_lianxi2' placeholder=''></input>
+            <input class='input input_content' type='text' name= 'other_work_content2' placeholder=''></input>
+        </view>
+        <view class='content'>
+            <input class='input input_name' type='text' name= 'other_name3' placeholder=''></input>
+            <input class='input input_profession' type='text' name= 'other_profession3' placeholder=''></input>
+            <input class='input ' type='text' name= 'other_lianxi3' placeholder=''></input>
+            <input class='input input_content' type='text' name= 'other_work_content3' placeholder=''></input>
+        </view>
+        <view class='content'>
+            <input class='input input_name' type='text' name= 'other_name4' placeholder=''></input>
+            <input class='input input_profession' type='text' name= 'other_profession4' placeholder=''></input>
+            <input class='input' type='text' name= 'other_lianxi4' placeholder=''></input>
+            <input class='input input_content' type='text' name= 'other_work_content4' placeholder=''></input>
+        </view>
+    </view>
+
+    <view class='section'>
+        <view class='msg'>三.项目详情</view>
+        <view class='content1'>
+            <text class='txt'>1.项目背景，目标，意义，市场前景:</text>
+            <textarea name='project_background' class='txt_area' auto-focus></textarea>
+        </view>
+        <view class='content1'>
+            <text class='txt'>2.项目内容说明，创信性，是否获奖:</text>
+            <textarea name='project_content' class='txt_area' auto-focus></textarea>
+        </view>
+        <view class='content1'>
+            <text class='txt'>3.项目运营方案及实施方案：</text>
+            <textarea name='project_style' class='txt_area' auto-focus></textarea>
+        </view>
+        <view class='content1'>
+            <text class='txt'>4.备注：</text>
+            <textarea name='notice' class='txt_area1' auto-focus></textarea>
+        </view>
+    </view>
+    <button class='bt_style' type='primary' form-type='submit'>提交申请</button>
+</form>
+</view> -->

@@ -1,0 +1,23 @@
+<!-- book_room.wxml -->
+<view class='container'>
+    <view class='room_message' bintap='showsomething'>
+      <!-- 老师在后台进行修改 -->
+      <view class='message'>{{room_message.message}}</view>
+    </view>
+    <view class='section'>
+        <picker name = 'date_Time' class="picker" mode="date" start="2018-01-01" end="2030-09-01" value="{{dateTime}}" bindchange="change_dateTime">
+          <view class="dateTime"> {{dateTime}} </view>
+        </picker>
+    </view>
+    <view class='section'>已被预约时间</view>
+    <view class='order_time'  wx:for="{{room_message.data.successTime}}" wx:key='index'>
+        <view>{{item.startTime}}</view>
+        <view>{{item.endTime}}</view>
+    </view>
+    <view class='section'>正在被预约时间</view>
+    <view class='ordering_time' wx:for='{{room_message.data.timing}}' wx:key='index'>
+        <view>{{item.startTime}}</view>
+        <view>{{item.endTime}}</view>
+    </view>
+    <button  class='button_style' data-pid='{{pid}}' type='primary' bindtap='continue'>继续预约</button>
+</view>

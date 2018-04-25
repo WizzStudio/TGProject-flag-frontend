@@ -1,0 +1,9 @@
+<view class='container'>
+    <view class='section'>
+       <image class='image_frame' src='../../images/home.png'></image>
+        <view class='teacher'>  {{tips}}  </view>
+        <button class='coming' type='primary' bindtap='navigationto_coming'>{{name}} </button>
+        <button class='comed' type='primary' bindtap='navigationto_comed'>我已入驻</button>
+        <button class='back' type='primary' bindtap='navigation'>返回首页</button>
+    </view>
+</view>

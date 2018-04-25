@@ -1,0 +1,6 @@
+<view class='container'>
+
+      <img src="../images/home.png"></img>
+        <!-- <text class='content'>申请已提交至学校后台，将在一个工作日内处理完成。申请结果会在处理完成后通知您。</text> -->
+    <!-- <button class='back' bindtap='navigationto'>查看场地</button> -->
+</view>
