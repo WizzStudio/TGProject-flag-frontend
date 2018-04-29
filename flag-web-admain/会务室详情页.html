@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+    <meta charset="utf-8" />
+    <title>会务室详情页</title>
+    <link rel="stylesheet" href="utils/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="css/会务室详情页.css">
+    <script src="utils/jquery.js"></script>
+  </head>
+  <body>
+    <header class="title">
+        <p>场地审批系统</p>
+        <div class="button">
+           <a href="星火众创空间场地首页.html" class="btn btn-info btn-lg">返回首页</a>
+        </div>
+    </header>       
+    <div class="body">
+      <p><span id="number"></span></p>
+      <div class="onload">
+          <textarea class="content" rows=8   name=s1   cols=50  onpropertychange= "this.style.posHeight=this.scrollHeight "></textarea>
+        <button class="btn btn-info btn-lg">上传</button>
+      </div>
+      <!--表格-->
+      <div id="bidHead" style="overflow:hidden;">
+      	<div class="maintable table-responsive">
+          <table class="table">
+            <thead id="thead">
+              <tr id="head" class="head">
+                <th>日 期</th>
+                <th>借用时间</th>
+                <th>团队名称</th>
+                <th>活动名称</th>
+                <th>审核状态</th>
+                <th>详细信息</th>
+              </tr>
+            </thead>
+            <tbody>
+
+            </tbody>
+          </table>
+      	</div>
+      </div>
+     
+    </div>
+  </body>
+  	<script src="js/会务室详情页.js"></script>
+</html>
