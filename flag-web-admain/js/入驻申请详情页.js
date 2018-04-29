@@ -1,39 +1,31 @@
-
-window.onload = function() {
-	var dateData;
-	//显示审核状态
-	(function(status = true) {
-		var end = status ? "已审核" : "未审核";
-		$("#top").append(end);
-	})();
+var thisURL = document.URL;
+var oid = thisURL.split("=")[1];
 	//向后台请求数据
-	$(document).ready(function() {
+	$(function() {
 		$.ajax({
 			beforeSend : function(request) {
 			request.setRequestHeader("Authorization", localStorage.getItem('verification'));
 			},
 			type:"GET",
-			url:"http://flagadmin.zhengsj.top/spaceApply/1",
-			dataType:"text",
+			url:"http://flagadmin.zhengsj.top/spaceApply/"+ oid,
+			// dataType:"text",
 			success: function(data) {
 				var obj = JSON.parse(data);
 				dealData(obj.data);
 			},
 			error:function(jqXHR) {
 				alert("发生错误：" + jqXHR.status);
-			},
-			complete: function () {
-				alert("isaudddddddd");
-                     }
+			}
 		})
-	})
+	});
 	function dealData(obj) {
 			var name = obj.name;
-			var id = obj.id;
+			var studentId = obj.studentId;
 			var phone = obj.phone;
-			
+			var field = obj.field;
 			var academy = obj. academy;
-			var discipline = discipline;
+			var discipline = obj.discipline;
+			var adminKind = obj.adminKind;
 			var qq = obj.qq;
 			var email = obj.email;
 			var dormitory = obj.dormitory;
@@ -61,7 +53,7 @@ window.onload = function() {
 			var content = obj.content;
 			var plan = obj.plan;
 			var note = obj.operations;		
-			
+			var state = obj.uid; //状态？
 			var select1 = false;
 			var select2 = false;
 			var select3 = false;
@@ -81,7 +73,7 @@ window.onload = function() {
 						      <td> 姓名</td>
 						      <td>${name}</td>
 						      <td> 学号</td>
-						       <td>${id}</td>
+						       <td>${studentId}</td>
 						      <td> 电话</td>
 						      <td>${phone}</td>
 						    </tr>
@@ -113,17 +105,12 @@ window.onload = function() {
 					   	 	<tr>
 					   	 		
 						      <td> 专业领域 </td>
-						    	<td class="spaceAround" align="center" colspan="5">
-						    		<input id="toggle1" type="checkbox">互联网+
-										<input id="toggle2" type="checkbox">智能硬件
-										<input id="toggle3" type="checkbox">其它
-									</td>
+						    	<td class="spaceAround" align="center" colspan="5">${field}</td>
 						    </tr>   
 						    <tr>
 						      <td>运营方式</td>
 						      <td align="center"  colspan="5">
-						      	<input id="toggle" type="checkbox">个人
-										<input id="toggle" type="checkbox">与人合作（组织人数<span class="count">10</span> 人）
+						      	${adminKind}
 						      </td>
 						    </tr>
 						    <tr>
@@ -190,53 +177,56 @@ window.onload = function() {
 						    </tr>
 						  </tbody>
 						</table>
-					
-
-					
 			`;
 				$("#info").append(table);
-				(function(obj) {
-						$("#toggle1").attr("checked", true);
-				})();
+				if(state == 0)
+					$("#top").append("审核中");
+				else if(state == 1)
+					$("#top").append("二级已拒绝");
+				else if(state == 2)
+					$("#top").append("一级已拒绝");
+				else if(state == 3)
+					$("#top").append("二级不确定");
+				else if(state == 4)
+					$("#top").append("二级已同意");
+				else if(state == 5)
+					$("#top").append("一级已同意");
 	}
-	
-	var content = $("#bottom").val();
-			var state = -1;
-	$("#dontSure").click(function() {
-				
-					state = 2;
-						alert(state);
-				submitInfo() 
-	})
-	$("#agree").click(function() {
-					state = 1;
-						alert(state);
-					submitInfo() 
-	})
-	$("#refuse").click(function() {
-					state = 0;
-						alert(state);
-					submitInfo() 
-	})
-	function submitInfo() {
-			$.ajax({
-					beforeSend : function(request) {
-					request.setRequestHeader("Authorization", localStorage.getItem('verification'));
-					},
-					type:"PUT",
-					url:"http://flagadmin.zhengsj.top/spaceApply/1",
-					
-					data: {
-						'feedback':content,
-						'state':state,
-					},
-					success: function(msg) {
-						alert("9");
-						console.log(msg);
-					},
-					error:function(jqXHR) {
-						alert("发生错误：" + jqXHR.status);
-					}
-		})
-	}
-};
+    //提交信息
+    var status = -1;
+    $("#dontSure").click(function() {
+        status = 2;
+        submitInfo();
+    });
+    $("#agree").click(function() {
+        status = 1;
+        submitInfo();
+    });
+    $("#refuse").click(function() {
+        status = 0;
+        submitInfo();
+    });
+    function submitInfo() {
+        var content = document.getElementsByClassName("bottom").value;
+        console.log(content);
+        console.log(status);
+        $.ajax({
+            beforeSend : function(request) {
+                request.setRequestHeader("Authorization", localStorage.getItem('verification'));
+            },
+            type:"PUT",
+            url:"http://flagadmin.zhengsj.top/spaceApply/"+ oid,
+            data: {
+                'feedback':content,
+                'state':status
+            },
+            success: function(res,status) {
+                if(status == 'success'){
+                    window.location.href = "星火众创空间场地首页.html";
+                }
+            },
+            error:function(jqXHR) {
+                alert("发生错误：" + jqXHR.status);
+            }
+        })
+}

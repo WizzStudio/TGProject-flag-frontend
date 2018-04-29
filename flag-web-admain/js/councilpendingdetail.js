@@ -1,23 +1,24 @@
-window.onload = function() {
+
     var thisURL = document.URL;
     var oid = thisURL.split("=")[1];
-	$.ajax({
-		beforeSend : function(request) {
-			request.setRequestHeader("Authorization", localStorage.getItem('verification'));
-		},
-		type:"GET",
-		url:"http://flagadmin.zhengsj.top/councilOrder/" + oid,
-		dataType:"text",
-		success: function(data) {
-			console.log(data.data);
-			var obj = JSON.parse(data);
-			dealData(obj.data);
-		},
-		error:function(jqXHR) {
-			alert("错误：" + jqXHR.status);
-		}
-	});
-
+	$(function(){
+        $.ajax({
+            beforeSend : function(request) {
+                request.setRequestHeader("Authorization", localStorage.getItem('verification'));
+            },
+            type:"GET",
+            url:"http://flagadmin.zhengsj.top/councilOrder/" + oid,
+            dataType:"text",
+            success: function(data) {
+                // console.log(data);
+                var obj = JSON.parse(data);
+                dealData(obj.data);
+            },
+            error:function(jqXHR) {
+                alert("错误：" + jqXHR.status);
+            }
+        });
+    });
 	//处理返回的数据
 	function dealData(obj) {
 		var teamName = obj.teamName;
@@ -100,45 +101,47 @@ window.onload = function() {
 			if(state == 0)
         		$("#top").append("审核中");
 			else if(state == 1)
-				$("#top").append("二级管理员已拒绝");
+				$("#top").append("二级已拒绝");
 			else if(state == 2)
-                $("#top").append("一级管理员已拒绝");
+                $("#top").append("一级已拒绝");
             else if(state == 3)
-                $("#top").append("二级管理员不确定");
+                $("#top").append("二级不确定");
             else if(state == 4)
-                $("#top").append("二级管理员已同意");
+                $("#top").append("二级已同意");
             else if(state == 5)
-                $("#top").append("一级管理员已同意");
+                $("#top").append("一级已同意");
 	}
 	//提交信息
-		var content = $("#bottom").val();
-		 var status = -1;
+		var status = -1;
 		$("#dontSure").click(function() {
-						status = 2;
-					submitInfo()
+					status = 2;
+					submitInfo();
 		});
 		$("#agree").click(function() {
 						status = 1;
-						submitInfo()
+						submitInfo();
 		});
 		$("#refuse").click(function() {
 						status = 0;
-						submitInfo()
+						submitInfo();
 		});
 		function submitInfo() {
+            	var content = document.getElementsByClassName("bottom").value;
+                console.log(content);
 				$.ajax({
 					beforeSend : function(request) {
 						request.setRequestHeader("Authorization", localStorage.getItem('verification'));
 					},
 					type:"PUT",
-					url:"http://flagadmin.zhengsj.top/councilOrder/check/" + oid,
+					url:"http://flagadmin.zhengsj.top/councilOrder/check/"+ oid,
 					data: {
 						'feedback':content,
-						'state':status,
+						'state':status
 					},
 					success: function(res,status) {
 						if(status == 'success'){
-							window.location.href = "会务室详情页.html?data=" + 1;
+							// console.log(status);
+							window.location.href = "星火众创空间场地首页.html";
 						}
 					},
 					error:function(jqXHR) {
@@ -147,4 +150,3 @@ window.onload = function() {
 			})
 		}
 
-}

@@ -23,6 +23,7 @@ p{
 	position: absolute;
 	margin-left: 20%;
 	margin-right: 20%;
+	min-height: 900px;
 }
 button:hover {
 	color: #00FF00;

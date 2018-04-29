@@ -7,14 +7,12 @@ $(document).ready(function() {
 			type:"GET",
 			url:"http://flagadmin.zhengsj.top/spaceApply/pending",
 			dataType:"text",
-		//	jsonp:"callback",
-		
 			success: function(data) {
 				var obj = JSON.parse(data);
 					dealData(obj);
 			},
 			error:function(jqXHR) {
-				alert("·¢Éú´íÎó£º" + jqXHR.status);
+				alert("错误" + jqXHR.status);
 			}
 		})
 })
@@ -23,15 +21,19 @@ $(document).ready(function() {
 	function dealData(obj) {
 		
 		var arr = obj.data;
-		console.log(arr);
+		// console.log(arr);
 		var teamName;
 	
 		for(let i = 0; i < arr.length; i++) {
 			teamName = arr[i].teamName;
+			time = arr[i].createTime;
+            var dateYear = time.split('T')[0];
+            var dateTime = time.split('T')[1].substring(0, 8);
+			id = arr[i].id;
 				var str = `
 				<div class="border">
-				<p class="teamname">${teamName}-------<a href="入驻申请详情页.html" class="please">申请入驻</a></p>
-			</div>
+					<span class="teamname">${teamName}  ${dateYear} ${dateTime}----<a href="入驻申请详情页.html?data=${id}"  class="please">申请入驻</a></span>
+				</div>
 		`;
 			$("#team").append(str);
 		}

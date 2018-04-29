@@ -57,14 +57,31 @@ function send() {
                             noReviewTable += `
                             <tr>
                               <td>${placeName}</td>
-                              <td id="count1">${count}</td>
+                              <td id="count">${count}</td>
                               <td><a href="会务室详情页.html?data=${id}&name=${placeName}">查看</a></td>
                             </tr>
                           `;
                         }
-                        noReviewTable += `</tbody>` ;
-                        elementTableCouncil.innerHTML = noReviewTable;
-                        yesReviewTable = `<thead>
+                        $.ajax({
+                            beforeSend: function (request) {
+                                request.setRequestHeader("Authorization", localStorage.getItem('verification'));
+                            },
+                            type: "GET",
+                            url: "http://flagadmin.zhengsj.top/spaceApply/count",
+                            success: function (res, status, xhr) {
+                                if (status == 'success') {
+                                    // console.log(res.data);
+                                    var starCount = res.data;
+
+                                    noReviewTable += `
+                                       <tr>
+                                          <td>入驻申请</td>
+                                          <td id="count">${starCount}</td>
+                                          <td><a href="入驻申请页.html">查看</a></td>
+                                        </tr>
+                                    </tbody>`;
+                                    elementTableCouncil.innerHTML = noReviewTable;
+                                    yesReviewTable = `<thead>
                                  <tr class="head">
                                    <th></th>
                                    <th>申请团队</th>
@@ -72,12 +89,14 @@ function send() {
                                    <th>详细信息</th></tr>
                                </thead>
                               <tbody>`;
-                        $("#noReview").attr("disabled",true);
-                        $("#yesReview").removeAttr("disabled");
+                                    $("#noReview").attr("disabled", true);
+                                    $("#yesReview").removeAttr("disabled");
+                                }
+                            }
+                        });
                     }
-                }
-            });
-
+                    }
+                });
         };
         yesReviewElement.onclick = function () {
             noReviewElement.style.background = "#EC971F";

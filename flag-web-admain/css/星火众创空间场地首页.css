@@ -18,7 +18,7 @@ span{
 	margin-right: 150px;
 }
 .body{
-	height: 550px;
+	/*height: 550px;*/
 	background: #F2F2F2;
 	position: relative;	
 	margin-left: 20%;
@@ -27,8 +27,6 @@ span{
 
 .content{
 	margin-top: 10px;
-	
-	
 	resize: none;
 }
 .top{
