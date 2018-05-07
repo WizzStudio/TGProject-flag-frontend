@@ -24,7 +24,7 @@ function check() {
                     var token = xhr.getResponseHeader('authorization');
                     // console.log(token);
                     localStorage.setItem('verification',token);
-                    window.location.href = '星火众创空间场地首页.html';
+                    window.location.href = 'star_index.html';
                 } else {
                     alert("对不起！您的账号或密码出现错误！请仔细检查！");
                 }

@@ -8,11 +8,9 @@
             },
             type:"GET",
             url:"http://flagadmin.zhengsj.top/councilOrder/" + oid,
-            dataType:"text",
-            success: function(data) {
-                // console.log(data);
-                var obj = JSON.parse(data);
-                dealData(obj.data);
+
+            success: function(res) {
+                dealData(res.data);
             },
             error:function(jqXHR) {
                 alert("错误：" + jqXHR.status);
@@ -21,6 +19,7 @@
     });
 	//处理返回的数据
 	function dealData(obj) {
+		console.log(obj);
 		var teamName = obj.teamName;
 		var activityName = obj.activityName;
 		var activityForm = obj.activityForm;
@@ -127,7 +126,6 @@
 		});
 		function submitInfo() {
             	var content = document.getElementsByClassName("bottom").value;
-                console.log(content);
 				$.ajax({
 					beforeSend : function(request) {
 						request.setRequestHeader("Authorization", localStorage.getItem('verification'));
@@ -140,8 +138,7 @@
 					},
 					success: function(res,status) {
 						if(status == 'success'){
-							// console.log(status);
-							window.location.href = "星火众创空间场地首页.html";
+							window.location.href = "star_index.html";
 						}
 					},
 					error:function(jqXHR) {

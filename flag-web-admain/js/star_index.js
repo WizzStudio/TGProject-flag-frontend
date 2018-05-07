@@ -58,7 +58,7 @@ function send() {
                             <tr>
                               <td>${placeName}</td>
                               <td id="count">${count}</td>
-                              <td><a href="会务室详情页.html?data=${id}&name=${placeName}">查看</a></td>
+                              <td><a href="council_detail.html?data=${id}&name=${placeName}">查看</a></td>
                             </tr>
                           `;
                         }
@@ -77,7 +77,7 @@ function send() {
                                        <tr>
                                           <td>入驻申请</td>
                                           <td id="count">${starCount}</td>
-                                          <td><a href="入驻申请页.html">查看</a></td>
+                                          <td><a href="star_pending.html">查看</a></td>
                                         </tr>
                                     </tbody>`;
                                     elementTableCouncil.innerHTML = noReviewTable;
@@ -132,7 +132,7 @@ function send() {
                             url: "http://flagadmin.zhengsj.top/spaceApply/completed",
                             success: function (res, status, xhr) {
                                 if (status == 'success') {
-                                    console.log(res.data);
+                                    // console.log(res.data);
                                     for(let i = 0;i< res.data.length; i++){
                                         var dateYear = res.data[i].createTime.split('T')[0];
                                         var dateTime = res.data[i].createTime.split('T')[1].substring(0, 8);
@@ -143,7 +143,7 @@ function send() {
                                         <td>众创空间入驻申请</td>
                                         <td>${teamName}</td>
                                         <td>${dateYear}  ${dateTime}</td>
-                                        <td><a href="入驻申请详情页.html?data=${id}">查看</a></td>
+                                        <td><a href="star_pending_detail.html?data=${id}">查看</a></td>
                                      </tr>  `;
                                     }
                                 }
@@ -160,9 +160,7 @@ function send() {
                                 $("#noReview").removeAttr("disabled");
                             }
                         });
-
                     }
-
                     }
                 });
             }

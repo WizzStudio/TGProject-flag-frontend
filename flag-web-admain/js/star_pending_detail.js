@@ -8,16 +8,15 @@ var oid = thisURL.split("=")[1];
 			},
 			type:"GET",
 			url:"http://flagadmin.zhengsj.top/spaceApply/"+ oid,
-			// dataType:"text",
+
 			success: function(data) {
-				var obj = JSON.parse(data);
-				dealData(obj.data);
+				// var obj = JSON.parse(data);
+				dealData(data.data);
 			},
 			error:function(jqXHR) {
 				alert("发生错误：" + jqXHR.status);
 			}
 		})
-	});
 	function dealData(obj) {
 			var name = obj.name;
 			var studentId = obj.studentId;
@@ -47,19 +46,13 @@ var oid = thisURL.split("=")[1];
 			var name4 = obj.name4;
 			var position4 = obj.position4;
 			var phone4 = obj.phone4;
-			var job4 = obj.job4;	
-			
+			var job4 = obj.job4;
+
 			var description = obj.description;
 			var content = obj.content;
 			var plan = obj.plan;
-			var note = obj.operations;		
+			var note = obj.operations;
 			var state = obj.uid; //状态？
-			var select1 = false;
-			var select2 = false;
-			var select3 = false;
-			
-			var methodselect1 = false;
-			var methodselect2 = true;
 			var table = ` 
 					<table class="table table-bordered">
 						  <tbody>
@@ -208,8 +201,8 @@ var oid = thisURL.split("=")[1];
     });
     function submitInfo() {
         var content = document.getElementsByClassName("bottom").value;
-        console.log(content);
-        console.log(status);
+        // console.log(content);
+        // console.log(status);
         $.ajax({
             beforeSend : function(request) {
                 request.setRequestHeader("Authorization", localStorage.getItem('verification'));
@@ -222,7 +215,8 @@ var oid = thisURL.split("=")[1];
             },
             success: function(res,status) {
                 if(status == 'success'){
-                    window.location.href = "星火众创空间场地首页.html";
+                	alert("fuck");
+                    window.location.href = "star_index.html";
                 }
             },
             error:function(jqXHR) {
@@ -230,3 +224,4 @@ var oid = thisURL.split("=")[1];
             }
         })
 }
+    });
