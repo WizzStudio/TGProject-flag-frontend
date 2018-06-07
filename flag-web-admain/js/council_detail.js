@@ -5,6 +5,7 @@ window.onload = function() {
 	var id = data[0].split("=")[1];
 	var placeName = data[1].split("=")[1];
 	$("#number").text(placeName);
+
 	$(function () {
         $.ajax({
             beforeSend : function(request) {
@@ -13,7 +14,8 @@ window.onload = function() {
             type:"GET",
             url:"http://flagadmin.zhengsj.top/message/council",
             success: function(res,status){
-                if(status == 'success'){
+                if(status === 'success'){
+                    console.log(res.data);
                     document.getElementById("councilMsg").value = res.data;
                 }
             }
@@ -48,6 +50,7 @@ window.onload = function() {
 			success: function(data,status) {
             	if(status == 'success') {
                     var obj = data;
+                    console.log(obj);
                     dealData(obj);
                 }
 			},
@@ -83,7 +86,6 @@ window.onload = function() {
 				$("#bidHead").after(templateApplicationInformation);
 				fillData(date, orderItem, completedTime, i);
 			}
-			// console.log(dataArray);
 		}
 		//将数据填充到HTML中
 		function fillData(time, item, completed, num) {
@@ -101,11 +103,17 @@ window.onload = function() {
                 eventName = item[i].activityName;
                 id = item[i].id;
                 if (item[i].state == 0)
-                    approvalStatus = "已审核";
+                    approvalStatus = "审核中";
                 else if (item[i].state == 1)
-                    approvalStatus = "未审核";
-                else
-                    approvalStatus = "不确定";
+                    approvalStatus = "二级已拒绝";
+                else if(item[i].state == 2)
+                    approvalStatus = "一级已拒绝";
+                else if (item[i].state == 3)
+                    approvalStatus = "二级不确定";
+                else if(item[i].state == 2)
+                    approvalStatus = "二级已同意";
+                else if(item[i].state == 2)
+                    approvalStatus = "一级已同意";
                 var applicationInformation = ` 
 	  	<tr> 
 			 <td>${date}</td> 
@@ -117,7 +125,7 @@ window.onload = function() {
 	   </tr> 
 	  `;
                 (function (i) {
-                    $("tbody:eq(1)").append(applicationInformation); //这里为啥是1呢
+                    $("tbody:eq(1)").append(applicationInformation);
                 })(num)
             }
             if (completed.length != 0) {
@@ -129,7 +137,7 @@ window.onload = function() {
                     $("#time:eq(0)").append(str);
                 }
             } else {
-                $("#time:eq(0)").append("暂无");  //为啥里面是0呢
+                $("#time:eq(0)").append("暂无");
             }
         }
 

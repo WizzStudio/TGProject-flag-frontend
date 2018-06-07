@@ -96,6 +96,7 @@
 						  </tbody>
 						</table>				
 		`;
+		// 设置为对象数组
 			$("#info").append(table);
 			if(state == 0)
         		$("#top").append("审核中");

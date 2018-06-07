@@ -22,8 +22,9 @@ function check() {
             success:function(res,status,xhr) {
                 if(res.status == 0){
                     var token = xhr.getResponseHeader('authorization');
-                    // console.log(token);
+
                     localStorage.setItem('verification',token);
+                    // console.log(token);
                     window.location.href = 'star_index.html';
                 } else {
                     alert("对不起！您的账号或密码出现错误！请仔细检查！");

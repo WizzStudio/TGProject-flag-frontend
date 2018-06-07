@@ -1,5 +1,7 @@
 var thisURL = document.URL;
 var oid = thisURL.split("=")[1];
+var temp_oid = oid;
+// console.log(oid);
 	//向后台请求数据
 	$(function() {
 		$.ajax({
@@ -8,15 +10,14 @@ var oid = thisURL.split("=")[1];
 			},
 			type:"GET",
 			url:"http://flagadmin.zhengsj.top/spaceApply/"+ oid,
-
 			success: function(data) {
-				// var obj = JSON.parse(data);
 				dealData(data.data);
+				// console.log('get!');
 			},
 			error:function(jqXHR) {
 				alert("发生错误：" + jqXHR.status);
 			}
-		})
+		});
 	function dealData(obj) {
 			var name = obj.name;
 			var studentId = obj.studentId;
@@ -201,21 +202,21 @@ var oid = thisURL.split("=")[1];
     });
     function submitInfo() {
         var content = document.getElementsByClassName("bottom").value;
-        // console.log(content);
-        // console.log(status);
+        if(!content) {
+        	content = ' ';
+		}
         $.ajax({
             beforeSend : function(request) {
                 request.setRequestHeader("Authorization", localStorage.getItem('verification'));
             },
             type:"PUT",
-            url:"http://flagadmin.zhengsj.top/spaceApply/"+ oid,
+            url:"http://flagadmin.zhengsj.top/spaceApply/" + temp_oid,
             data: {
                 'feedback':content,
                 'state':status
             },
             success: function(res,status) {
                 if(status == 'success'){
-                	alert("fuck");
                     window.location.href = "star_index.html";
                 }
             },
@@ -224,4 +225,5 @@ var oid = thisURL.split("=")[1];
             }
         })
 }
+
     });
