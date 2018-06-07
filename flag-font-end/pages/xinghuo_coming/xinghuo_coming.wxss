@@ -1,62 +1,105 @@
-.msg {
-    margin-top: 10rpx;
-    text-align: center;
-    border-bottom: 1rpx solid grey;
-    color: grey;
-}
 .section {
   display: flex;
   flex-direction: column;
+}
+.msg {
+    margin-top: 10rpx;
+    position: relative;
+    left: 2px;
+    font-size: 20px;
 }
 .content {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    margin: 10rpx;
+    margin: 5px;
 }
 .content1 {
     display: flex;
     flex-direction: column;
     margin: 10rpx;
 }
+.txt {
+    font-size: 18px;
+}
+.txt1 {
+    font-size: 18px;
+    writing-mode: horizontal-tb;
+}
 .input {
+    opacity: 0.6;
     position: relative;
-    border: 1rpx solid grey;
-    float: right;
+    right: 2px;
+    font-size: 16px;
 }
 .input_qq {
-    border: 1px solid grey;
+    opacity: 0.6;
+    position: relative;
+    right: 10px;
+    font-size: 16px;
 }
-.input_adress .input_weixin {
-    border: 1px solid grey;
+.input_adress, .input_weixin {
+    opacity: 0.6;
+    position: relative;
+    right: 10px;
+    font-size: 16px;
   }
 .txt1 {
-    margin-right: 70rpx;
+    font-size: 16px;
+    writing-mode: horizontal-tb;
 }
-.input_name .input_profession{
+.input_name, .input_profession{
     width: 300rpx;
 }
 
 .input_content {
     width: 500rpx;
+    height: 100rpx;
+    background-color: rgba(78,78,78,0.1);
+    border-radius: 6px;
 }
 .txt_area {
-    border: 1rpx solid grey;
-    width: 700rpx;
-    height: 600rpx;
+    background-color: rgba(78,78,78,0.1);
+    width: 98%;
+    height: 300rpx;
+    border-radius: 6px;
+    font-size: 16px;
+    margin-top: 10rpx;
 }
 .txt_area1 {
-     border: 1rpx solid grey;
-     width: 700rpx;
+    background-color: rgba(78,78,78,0.1);
+     width: 98%;
+    height: 200rpx;
+    font-size: 16px;
+    border-radius: 6px;
+    margin-top: 10rpx;
 }
-.btn {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
+.radio-group {
+    font-size: 16px;
 }
-.bt_style {
+.radio {
+    font-size: 16px;
+}
+.content-person {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+}
+.person {
+    font-size: 16px;
+    margin: 6px;
+}
+.person1 {
+    display: flex;
+    flex-direction: row;
+    /*justify-content: space-around;*/
+}
+.person-other {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+ .bt_style {
     margin-top: 40px;
-}
+    border-radius: 6px;
+    width: 30%
+} 

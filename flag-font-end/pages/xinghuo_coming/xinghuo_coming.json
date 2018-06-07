@@ -1,3 +1,4 @@
 {
-    "navigationBarTitelText":"请填写申请表"
+    "navigationBarTitleText":"请填写申请表",
+    "backgroundTextStyle": "dark"
 }

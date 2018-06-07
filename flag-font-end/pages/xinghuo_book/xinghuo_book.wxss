@@ -1,45 +1,63 @@
+.containerBox {
+    width: 100%;
+}
 .notice {
-    border: 1px solid grey;
+    border-bottom: 1px solid grey;
     width: 90%;
     text-align: center;
-    height: 200px;
+    height: 120px;
     margin: 10px;
+}
+.notice_contents {
+    font-size: 18px;
+}
+.notice-content {
+    font-size: 16px;
+    opacity: 0.6;
 }
 .register {
   border-bottom: 1px solid grey;
 }
 .section {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     margin: 10px;
-    /* float: left; */
 }
-.content {
-    /* background-color: grey; */
-
+.put1  {
+    font-size: 16px;
+    position: absolute;
+    right: 10px; 
+    direction: ltr;
+    opacity: 0.6;
 }
-.section2 {
-    display: flex;
-    flex-direction:row;
-    margin: 5px;
+.picker {
+    position: absolute;
+    right: 70px;
+    opacity: 0.6;
+    font-size: 16px;
 }
-.put {
-    margin: auto;
-    /* margin:10px 0 10px 40px; */
-    width: 90%;
-    border: 1px solid grey;
+.content-security {
+    margin-left: 10px;
 }
-.put1 {
-    width:70px;
-    border: 1px solid grey;
+.content-person {
+    font-size:  20px;
+    margin-left: 10px;
 }
- .dateTime {
-   text-align: center;
-   margin: 5px 10px;
-   border: 1px solid grey;
- }
- .picker_style {
-   display: flex;
-   flex-direction: row;
-   justify-content: center;
+.content, .content1 {
+    font-size: 18px;
+}
+.puts {
+    position: relative;
+    left: 20px;
+    height: 100px;
+    border-radius: 6px;
+    font-size: 16px;
+    background-color: rgba(78,78,78,0.1);
+    margin-top: 6px;
+}
+ .btn {
+     margin-top: 20px;
+     -webkit-border-radius: 6px;
+     border-radius: 6px;
+     width: 30%;
  }

@@ -1,56 +1,56 @@
-<view calss='containerBox'>
+<view calss='container'>
 <form bindsubmit='formSubmit'>
     <view class='section'>
-        <view class='msg'>一.申请人档案</view>
+        <view class='msg'>申请人信息</view>
         <view class='content'>
             <text class='txt'>姓名：</text>
-            <input  class='input' type='text' name='name' placeholder=''></input>
+            <input  class='input' type='text' name='name' placeholder='请输入姓名' required></input>
         </view>
         <view class='content'>
             <text class='txt'>学号：</text>
-            <input  class='input' type='number' name='studentId' placeholder=''></input>
+            <input  class='input' type='number' name='studentId' placeholder='请输入学号' required></input>
         </view>
         <view class='content'>
             <text class='txt'>学院：</text>
-            <input  class='input' type='text' name='academy' placeholder=''></input>
+            <input  class='input' type='text' name='academy' placeholder='请输入学院名称' required></input>
         </view>
         <view class='content'>
             <text class='txt'>专业：</text>
-            <input  class='input' type='text' name='discipline' placeholder=''></input>
+            <input  class='input' type='text' name='discipline' placeholder='请输入专业名称' required></input>
         </view>
         <view class='content'>
             <text class='txt'>电话：</text>
-            <input  class='input' type='number' name='phone' placeholder=''></input>
+            <input  class='input' type='number' name='phone' placeholder='请输入电话' required></input>
         </view>
         <view class='content'>
             <text class='txt'>QQ：</text>
-            <input  class='input_qq' type='number' name='qq' placeholder=''></input>
+            <input  class='input' type='number' name='qq' placeholder='请输入QQ' required></input>
         </view>
         <view class='content'>
             <text class='txt'>邮箱：</text>
-            <input  class='input' type='number' name='email' placeholder=''></input>
+            <input  class='input' type='text' name='email' placeholder='请输入邮箱' required></input>
         </view>
         <view class='content'>
-            <text class='txt_adress'>宿舍地址：</text>
-            <input  class='input' type='text' name='dormitory' placeholder=''></input>
+            <text class='txt'>宿舍地址：</text>
+            <input  class='input' type='text' name='dormitory' placeholder='请输入宿舍地址' required></input>
         </view>
     </view>
 
     <view class='section'>
-        <view class='msg'>二.团队资料</view>
+        <view class='msg'>团队资料</view>
         <view class='content'>
             <text class='txt'>名称：</text>
-            <input class='input' type='text' name='teamName' placeholder=''></input>
+            <input class='input' type='text' name='teamName' placeholder='请输入团队名称' required></input>
         </view>
         <view class='content'>
             <text class='txt'>网址/微信：</text>
-            <input class='input_weixin' type='number' name='website' placeholder=''></input>
+            <input class='input' type='text' name='website' placeholder='请输入网址/微信' required></input>
         </view>
         <view class='content'>
             <text class='txt'>专业邻域：</text>
             <radio-group name = 'field' class='radio-group' bindchange='radioChange_field'>
-                <label class='radio' wx:for="{{profession}}" wx:key="">
-                    <radio value='{{item.value}}' checked='{{item.checked}}'>{{item.value}}</radio>
+                <label  class='radio' wx:for="{{profession}}" wx:key="">
+                    <radio value='{{item.value}}' checked='{{item.checked}}' class='radio'>{{item.value}}</radio>
                 </label>
             </radio-group>
         </view>
@@ -58,67 +58,97 @@
             <text class='txt'>运营方式：</text>
             <radio-group  name = 'operations' class='radio-group' bindchange='radioChange_opreations'>
                 <label class='radio' wx:for='{{style}}' wx:key="">
-                    <radio value='{{item.value1}}' checked='{{item.checked}}'>{{item.value1}}</radio>
+                    <radio value='{{item.value1}}' checked='{{item.checked}}' class='radio'>{{item.value1}}</radio>
                 </label>
             </radio-group>
         </view>
         <view class='content'>
             <text class='txt'>其它成员：</text>
         </view>
-        <view class='content'>
-            <text class= 'txt1'> 姓名 </text>
-            <text class= 'txt1'> 职务 </text>
-            <text class= 'txt1'> 联系方式 </text>
-            <text class= 'txt1'> 工作内容 </text>
+        <view class='content content-person'>
+            <text class="person">成员1</text>
+                <view class="person-other">
+                    <text class= 'txt1'> 姓名 </text>
+                    <input class='input input_name' type='text' name= 'name1' placeholder='请输入姓名' required></input>
+                </view>
+                <view class="person-other">
+                <text class= 'txt1'> 职务 </text>
+                <input class='input input_profession' type='text' name= 'position1' placeholder='请输入职务' required></input>
+                </view>
+            <view class="person-other">
+                <text class= 'txt1'> 联系方式 </text> <input class='input' type='number' name= 'phone1' placeholder='请输入联系方式' required></input>
+            </view>
+            <view class="person-other">
+                <text class= 'txt1'> 工作内容 </text> <input class='input input_content' type='text' name= 'job1' placeholder='15字以内' max="15" required></input>
+            </view>
+
         </view>
-        <view class='content'>
-            <input class='input input_name' type='text' name= 'name1' placeholder=''></input>
-            <input class='input input_profession' type='text' name= 'position1' placeholder=''></input>
-            <input class='input' type='text' name= 'phone1' placeholder=''></input>
-            <input class='input input_content' type='text' name= 'job1' placeholder=''></input>
+        <view class='content content-person'>
+            <text class="person">成员2</text>
+            <view class="person-other">
+                <text class= 'txt1'> 姓名 </text><input class='input input_name' type='text' name= 'name2' placeholder='请输入姓名' required></input>
+            </view>
+            <view class="person-other">
+                <text class= 'txt1'> 职务 </text> <input class='input input_profession' type='text' name= 'position2' placeholder='请输入职务' required></input>
+            </view>
+            <view class="person-other">
+                <text class= 'txt1'> 联系方式 </text> <input class='input' type='number' name= 'phone2' placeholder='请输入联系方式' required></input>
+            </view>
+            <view class="person-other">
+                <text class= 'txt1'> 工作内容 </text> <input class='input input_content' type='text' name= 'job2' placeholder='15字以内' max="15" required></input>
+            </view>
         </view>
-        <view class='content'>
-            <input class='input input_name' type='text' name= 'name2' placeholder=''></input>
-            <input class='input input_profession' type='text' name= 'position2' placeholder=''></input>
-            <input class='input' type='text' name= 'phone2' placeholder=''></input>
-            <input class='input input_content' type='text' name= 'job2' placeholder=''></input>
-        </view>
-        <view class='content'>
-            <input class='input input_name' type='text' name= 'name3' placeholder=''></input>
-            <input class='input input_profession' type='text' name= 'position3' placeholder=''></input>
-            <input class='input ' type='text' name= 'phone3' placeholder=''></input>
-            <input class='input input_content' type='text' name= 'job3' placeholder=''></input>
-        </view>
-        <view class='content'>
-            <input class='input input_name' type='text' name= 'name4' placeholder=''></input>
-            <input class='input input_profession' type='text' name= 'position4' placeholder=''></input>
-            <input class='input' type='text' name= 'phone4' placeholder=''></input>
-            <input class='input input_content' type='text' name= 'job4' placeholder=''></input>
+        <view class='content content-person'>
+            <text class="person">成员3</text>
+            <view class="person-other">
+                <text class= 'txt1'> 姓名 </text><input class='input input_name' type='text' name= 'name3' placeholder='请输入姓名' required></input>
+            </view>
+            <view class="person-other">
+                <text class= 'txt1'> 职务 </text> <input class='input input_profession' type='text' name= 'position3' placeholder='请输入职务' required></input>
+            </view>
+            <view class="person-other">
+                <text class= 'txt1'> 联系方式 </text> <input class='input' type='number' name= 'phone3' placeholder='请输入联系方式' required></input>
+            </view>
+            <view class="person-other">
+                <text class= 'txt1'> 工作内容 </text> <input class='input input_content' type='text' name= 'job3' placeholder='15字以内' maxlength="15" required></input>
+            </view>
+            </view>
+        <view class='content content-person'>
+            <text class="person">成员4</text>
+            <view class="person-other">
+                <text class= 'txt1'> 姓名 </text><input class='input input_name' type='text' name= 'name4' placeholder='请输入姓名' required></input>
+            </view>
+            <view class="person-other">
+                <text class= 'txt1'> 职务 </text> <input class='input input_profession' type='text' name= 'position4' placeholder='请输入职务' required></input>
+            </view>
+            <view class="person-other">
+                <text class= 'txt1'> 联系方式 </text> <input class='input' type='number' name= 'phone4' placeholder='请输入联系方式' required></input>
+            </view>
+            <view class="person-other">
+                <text class= 'txt1'> 工作内容 </text> <input class='input input_content' type='text' name= 'job4' placeholder='15字以内' maxlength="15" required></input>
+            </view>
         </view>
     </view>
-
     <view class='section'>
-        <view class='msg'>三.项目详情</view>
+        <view class='msg'>项目详情</view>
         <view class='content1'>
             <text class='txt'>1.项目背景，目标，意义，市场前景:</text>
-            <textarea name='discription' class='txt_area' auto-focus></textarea>
+            <textarea name='discription' class='txt_area' maxlength="100" placeholder="100字以内" auto-focus required></textarea>
         </view>
         <view class='content1'>
             <text class='txt'>2.项目内容说明，创信性，是否获奖:</text>
-            <textarea name='content' class='txt_area' auto-focus></textarea>
+            <textarea name='content' class='txt_area' maxlength="100" placeholder="100字以内" auto-focus required></textarea>
         </view>
         <view class='content1'>
             <text class='txt'>3.项目运营方案及实施方案：</text>
-            <textarea name='plan' class='txt_area' auto-focus></textarea>
+            <textarea name='plan' class='txt_area' maxlength="100" placeholder="100字以内" auto-focus required></textarea>
         </view>
         <view class='content1'>
             <text class='txt'>4.备注：</text>
-            <textarea name='other' class='txt_area1' auto-focus></textarea>
+            <textarea name='other' class='txt_area1' maxlength="25" placeholder="25字以内" auto-focus required></textarea>
         </view>
     </view>
-    <view class='btn'>
-        <button class='bt_style' type='primary' form-type='submit' size="mini">提交申请</button>
-    </view>
-
+        <button class='bt_style' type='primary' form-type='submit'  >提交申请</button>
 </form>
+
 </view>

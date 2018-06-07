@@ -4,6 +4,11 @@ Page({
   data: {
 
   },
+    onPullDownRefresh: function () {
+        setTimeout(function(){
+            wx.stopPullDownRefresh();
+        },1000);
+    },
   detail: function(e){
     console.log(e);
   },
@@ -32,10 +37,13 @@ Page({
       },
       url: app.globalData.globalUrl + '/place',
       success:function(res){
-        that.setData({
-          room: res.data.data,
-          yuyue: '预约'
-        })
+          if(res.statusCode == 200){
+              console.log(res.data);
+              that.setData({
+                  room: res.data.data,
+                  yuyue: '预约'
+              })
+          }
       }
     })
 

@@ -1,13 +1,10 @@
-.section{  
-    border:1px solid #ddd;  
-    width:96%;  
-    margin:auto;  
-    height:80rpx;  
-    margin-top:20rpx;  
-}  
-.section1{  
-    border:1px solid #ddd;  
-    width:96%;  
-    margin:auto;  
-    margin-top:20rpx;  
-}  
+.section{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 10px;
+}
+.picker {
+    font-size: 16px;
+    opacity: 0.6;
+}

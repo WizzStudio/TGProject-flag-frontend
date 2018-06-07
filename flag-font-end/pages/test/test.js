@@ -1,44 +1,30 @@
+var app = getApp();
 Page({
     data: {
-        height: 20,
-        focus: false
+        date: '请设置',
+        time: '请设置',
+        time1: '请设置',
+        pretime: ''
+
     },
-    bindButtonTap: function () {
+
+    bindDateChange: function(e) {
         this.setData({
-            focus: true
+            date: e.detail.value,
         })
     },
-    bindTextAreaBlur: function (e) {
-        console.log(e.detail.value)
+    bindTimeChange: function(e) {
+        this.setData({
+            time: e.detail.value,
+            pretime: e.detail.value
+        })
     },
-    bindFormSubmit: function (e) {
-        console.log(e.detail.value.textarea)
-    },
-    formSubmit: function (e) {
-        console.log('form发生了submit事件，携带数据为：', e.detail.value)
-    },
-    formReset: function () {
-        console.log('form发生了reset事件')
-    },
-    onLoad: function(){
-        //调用登录接口，获取 code  
-        wx.login({
-            success: function (res) {
-                var code = res.code
-                console.log(code)
-                if(res.code){
-                    wx.request({
-                        url: 'http://flagtestj.zhengsj.top/user/login',
-                        data: {
-                            code: res.code
-                        },
-                        method: 'POST',
-                        success: function(res){
-                            console.log(res.data)
-                        }
-                    })
-                }
-            }
+    bindTimeChange1: function(e) {
+        this.setData({
+            time1: e.detail.value
         })
     }
-})
+
+
+});
+

@@ -1,16 +1,18 @@
-var app = getApp()
+var app = getApp();
 
 Page({
   data: {
-    positions: ['社长/部长', '副社长/副部长', '干事'],
-    position: 0,
-    did: 0,
+    array: ['社长/部长', '副社长/副部长', '干事'],
+    index : 0,
     name: '',
     studentId: '',
-    post: '',
-    disabled: true
+    post: ''
   },
-
+    onPullDownRefresh: function () {
+        setTimeout(function(){
+            wx.stopPullDownRefresh();
+        },1000);
+    },
   input_name: function(e) {
     this.setData({
       name: e.detail.value
@@ -23,23 +25,33 @@ Page({
   },
   bindPickerChange: function(e) {
     this.setData({
-      position : e.detail.value
-    })
+      index: e.detail.value
+    });
   },
-  bindPickerChange_department: function(e) {
-    this.setData({
-      did : e.detail.value
-    })
-  },
-  //1.0版本 目前并没有进行表单验证 迭代时再补
+
   formSubmit: function(e) {
-    console.log(e.detail.value);
+
     //获取个人信息并在本地缓存 同步wx.setStorageSync()  异步 wx.setStorage()
     var objData = e.detail.value;
+    if (this.data.index == '0') {
+        this.setData ({
+            post: '社长/部长'
+        });
+    }
+    else if (this.data.index == '1') {
+        this.setData({
+            post: '副社长/副部长'
+        });
+    }
+    else if (this.data.index == '2') {
+        this.setData({
+            post: '干事'
+        });
+    }
+
     wx.setStorageSync("name",objData.name);
     wx.setStorageSync("studentId",objData.studentId);
-    wx.setStorageSync("position",objData.position);
-    wx.setStorageSync("did",objData.did);
+    wx.setStorageSync("index",this.data.index);
 
     var flag = true;
     var warn = '';
@@ -47,24 +59,26 @@ Page({
       warn = "请填写完整您的个人信息"
     } else {
       flag = false;
-      var that = this
+      var that = this;
       //获取本地缓存sessionId
       wx.request({
         url: app.globalData.globalUrl + '/user',
         method: "PUT",
-        data: e.detail.value,
+        data:{
+            name : e.detail.value.name,
+            studentId: e.detail.value.studentId,
+            position: that.data.post
+        } ,
         header: {
           'content-type': 'application/json',
           'Cookie': 'JSESSIONID=' + app.globalData.globalSession
         },
         success: function(res) {
-          that.setData({
-            disabled: false
-          })
-          wx.setStorageSync("disabled", that.data.disabled);
-          wx.switchTab({
-            url: '../index/index'
-          })
+            if(res.statusCode === 200) {
+                wx.switchTab({
+                    url: '../xinghuo/xinghuo'
+                });
+            }
         }
       })
     }
@@ -75,52 +89,24 @@ Page({
       })
     }
   },
-  formReset: function(e) {
-    this.setData({
-      name: '',
-      studentId: '',
-      position: 0,
-      did: 0
-    });
-  },
-  onLoad: function(options) {
-    // console.log(this.data.name);
-    var name = wx.getStorageSync("name");
-    var studenId = wx.getStorageSync("studenId");
-    var did = wx.getStorageSync("did");
-    var position = wx.getStorageSync("position");
-    var disabled = wx.getStorageSync("disabled");
-    console.log(name);
-      this.setData({
-        name : name,
-        studenId : studenId,
-        did : did,
-        position : position,
-        disabled : disabled
-      });
+  onShow: function(options) {
+    
+    let names = wx.getStorageSync('name');
+    let studentIds = wx.getStorageSync('studentId');
+    let index1 = wx.getStorageSync('index') || 0;
 
-    var that = this;
-    wx.request({
-      url: 'http://flagtestj.zhengsj.top/department',
-      success: function(res) {
-        that.setData({
-          department: res.data.data
+    if( (index1 !== null || index1 !== "") ){
+        this.setData({
+            name : names,
+            studentId : studentIds,
+            index :index1
         })
-      }
+    }
+  },
+  onUnload: function() {
+    wx.switchTab({
+        url: '../mine/mine'
     })
   }
-  // onShow: function(options) {
-  //     var name = wx.getStorageSync("name");
-  //     var studenId = wx.getStorageSync("studenId");
-  //     var did = wx.getStorageSync("did");
-  //     var position = wx.getStorageSync("position");
-  //     if(name && studenId && did && position){
-  //       this.data.name = name;
-  //       this.data.studenId = studenId;
-  //       this.data.did = did;
-  //       this.data.position = position;
-  //     }
-
-
 
 })

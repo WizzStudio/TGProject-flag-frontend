@@ -8,6 +8,11 @@ Page({
         disabled: true,
         pid: ''
     },
+    onPullDownRefresh: function () {
+        setTimeout(function(){
+            wx.stopPullDownRefresh();
+        },1000);
+    },
     formSubmit: function(e){
         // console.log(e.detail.value)
         // console.log(e.detail.target.dataset.pid)
@@ -39,7 +44,7 @@ Page({
                     success: function(res){
                       if(res.confirm){
                         wx.switchTab({
-                          url: '../index/index'
+                          url: '../xinghuo/xinghuo'
                           })
                         }
                       }

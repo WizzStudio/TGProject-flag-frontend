@@ -7,33 +7,49 @@ Page({
     notice:'',
     room:[],
     dateTime: timedate[0],
-    dayTime: '09:00',
-    dayTime1: '09:00'
-  },
+    date: '请选择',
+    time: '请选择',
+    time1: '请选择',
+    pretime: ''
 
+  },
+    onPullDownRefresh: function () {
+        setTimeout(function(){
+            wx.stopPullDownRefresh();
+        },1000);
+    },
   get_room: function(e){
     this.setData({
       index: e.detail.value
     });
   },
-  change_date_Time: function(e){
-    this.setData({
-      dateTime: e.detail.value
-    });
-  },
-  change_time_endTime: function(e){
-    this.setData({
-      dayTime1: e.detail.value
-    })
-  },
-  change_time_startTime: function (e) {
-    this.setData({
-      dayTime: e.detail.value
-    })
-  },
+
+    bindDateChange: function(e) {
+        this.setData({
+            date: e.detail.value,
+        })
+    },
+    bindTimeChange: function(e) {
+        this.setData({
+            time: e.detail.value,
+            pretime: e.detail.value
+        })
+    },
+    bindTimeChange1: function(e) {
+        this.setData({
+            time1: e.detail.value
+        })
+    },
   formSubmit:function(e){
     console.log(e.detail.value);
     var that = this;
+    if (e.detail.value.teamName == null || e.detail.value.teamName == '') {
+        wx.showModal({
+            title: '提示',
+            content: '请完善表单信息!',
+        })
+    }
+    else 
     wx.request({
     url: app.globalData.globalUrl + '/councilOrder',
     header: {
@@ -51,17 +67,19 @@ Page({
       securityMeasure: e.detail.value.securityMeasure,
       phone: e.detail.value.phone,
       equipment: e.detail.value.equipment,
-      startTime: e.detail.value.date_Time + ' ' + e.detail.value.time_startTime + ':00',
-      endTime: e.detail.value.date_Time + ' ' + e.detail.value.time_endTime + ':00'
+      startTime: e.detail.value.date + ' ' + e.detail.value.time + ':00',
+      endTime: e.detail.value.date + ' ' + e.detail.value.time1 + ':00'
     },
+        method: 'POST',
     success: function(res){
       if(res.statusCode == 200){
+        // console.log(res);
         wx.showModal({
           title:'温馨提示',
           content:'申请已成功提交',
           showCancel: false,
           success: function(){
-            wx.navigateTo({
+            wx.switchTab({
               url: '../xinghuo/xinghuo'
             });
           }
@@ -77,11 +95,13 @@ Page({
          header: { 'Cookie':'JSESSIONID=' + app.globalData.globalSession  },
          success: function(res) {
             // console.log( res.data.data );
-             that.setData({
-                // notice: res.data.message,
-                room: res.data.data,
-                status: res.data.status,
-             });
+            if( res.statusCode == 200 ){ 
+                that.setData({
+                    // notice: res.data.message,
+                    room: res.data.data,
+                    status: res.data.status,
+                });
+            }
          }
      });
      wx.request({
@@ -89,9 +109,11 @@ Page({
        header: { 'Cookie':'JSESSIONID=' + app.globalData.globalSession  },
        success: function(res) {
          // console.log(res.data);
-          that.setData({
-            notice: res.data.data
-          })
+         if( res.statusCode == 200 ) {
+             that.setData({
+                 notice: res.data.data
+             })
+         }
        }
      })
   }

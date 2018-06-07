@@ -4,9 +4,16 @@ Page({
   data: {
     name:'我要入驻',
     tips: '',
-    status: ''
+    status: '',
+    content:''
   },
+    onPullDownRefresh: function () {
+        setTimeout(function(){
+            wx.stopPullDownRefresh();
+        },1000);
+    },
   navigationto_coming: function(){
+      var that = this;
       var status = this.data.status; // 获取当前页面的data
       if(status == 1){
       wx.navigateTo({
@@ -16,28 +23,39 @@ Page({
       if(status == 0){
       wx.request({
         url: app.globalData.globalUrl + '/space/apply',
+        method: 'GET',
         header: { 'Cookie':'JSESSIONID=' + app.globalData.globalSession },
         success: function (res) {
-          console.log(res.data);
-          if(res.data.status == 0){
+        //   console.log(res.data);
+          if(res.data.data.state == 0){
             wx.showModal({
               title: '提示',
               //此时内容提示应该为res.data.message 不能为null 后面改
-              content: '无'
+              content: '审核中',
+              showCancel: false,
+              confirmText: '我知道了'
             });
           }
-          else if(res.data.status == 1){
+          else if(res.data.data.state == 1){
             wx.showModal({
               title: '提示',
-              content: 'res.data.data.feedback'
+              content: '已通过',
+              showCancel: false,
+              confirmText: '我知道了'
             });
+
           }
           else {
             wx.showModal({
               title: '提示',
-              content: 'res.data.data.feedback'
+              content: '已拒绝',
+              showCancel: false,
+              confirmText: '我知道了'
             });
-          }
+            that.setData({
+                name: "我要入驻"
+            })       
+           }
         }
     });
   }
@@ -52,33 +70,43 @@ Page({
           url: '../index/index',
       });
   },
-  onLoad: function(){
+  onShow: function(){
         var that = this;
         wx.request({
             //判断用户是否存在未删除的入驻申请
             url: app.globalData.globalUrl + '/space/apply/existence',
+            method: 'GET',
             header: { 'Cookie':'JSESSIONID=' + app.globalData.globalSession },
             success: function(res){
-              console.log(res.data);
-              that.setData({
-                // tips: res.data.message,
-                status: res.data.status
-              });
-              if(res.data.status == 0)
+            if( res.statusCode == 200 ) { 
+                // console.log(res.data.status);
+                if( res.data.status == null){
                     that.setData({
-                      name:'申请状态'
+                        status: 1
+                    })
+                }
+                that.setData({
+                    status: res.data.status
+                });
+                if (res.data.status == 0)
+                    that.setData({
+                        name: '申请状态'
                     });
+            }
             }
       });
         wx.request({
             //获取后台老师上传的数据
             url: app.globalData.globalUrl + '/message/starSpace',
+            method: 'GET',
             header: { 'Cookie':'JSESSIONID=' + app.globalData.globalSession },
             success: function( res ){
-              console.log(res.data);
-              that.setData({
-                tips: res.data.data
-              });
+            //   console.log(res.data);
+            if( res.statusCode == 200 ) {  
+                that.setData({
+                    tips: res.data.data
+                });
+            }
             }
         });
   }

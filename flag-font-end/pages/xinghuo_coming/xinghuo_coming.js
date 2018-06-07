@@ -13,6 +13,12 @@ Page({
         {value1: '与人合作'}
     ]
   },
+    onPullDownRefresh: function () {
+
+        setTimeout(function(){
+            wx.stopPullDownRefresh()
+        },1000)
+    },
     radioChange_field: function(e){
        this.setData({
          field: e.detail.value
@@ -26,7 +32,7 @@ Page({
        })
     },
     formSubmit: function(e){
-        console.log(e.detail.value);
+        // console.log(e.detail.value);
         wx.request({
           url : app.globalData.globalUrl + '/space/apply',
           header: {
@@ -69,14 +75,14 @@ Page({
           },
           method : 'POST',
           success : function(res){
-            // console.log(res.data);
+            console.log(res.data);
             if(res.statusCode == 200){
               wx.showModal({
                 title: '温馨提示',
                 content: '申请已成功提交',
                 showCancel: false,
                 success: function(res) {
-                  wx.navigateTo({
+                  wx.switchTab({
                     url: '../xinghuo/xinghuo'
                   });
                 }

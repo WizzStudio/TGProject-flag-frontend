@@ -1,18 +1,28 @@
 <!--mine.wxml-->
 <view class="container">
-  <view class="userinfo">
-    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
-    <block wx:else>
-      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
-      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
-    </block>
-  </view>
-  <view class="section">
-    <button type='primary' bindtap='toIdentity' class='type_button'>我的信息</button>
-
-    <button type='primary' bindtap='toManage'
-class='type_button'>预约管理</button>
-
-    <button type='primary' bindtap='toXingHuo' class='type_button'>星火众创空间</button>
+    <view class="userinfo">
+        <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo" class="btn" type='primary'> 微信认证 </button>
+        <block wx:else>
+          <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
+          <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+        </block>
     </view>
-</view>
+   
+  </view>
+ <view class='box'>
+      <view class='section'>
+        <text class="content">姓名：</text>
+        <view class="name">{{name}}</view>
+      </view>
+      <view class="section">
+        <text class="content">学号：</text>
+        <view class="student">{{studentId}}</view>
+      </view>
+      <view class="section">
+          <view class="content">担任职务：</view>
+            <view class="positions">
+              {{positions}}
+            </view>
+      </view>
+        <button type="primary" bindtap="change_inf" class="btn">修改个人信息 </button>
+    </view>

@@ -11,7 +11,7 @@ Page({
         // console.log(res);
         if (res.code) {
           wx.request({
-            url: 'http://flagtestj.zhengsj.top/user/login',
+            url: 'https://flag.helloyzy.cn/user/login',
             method: 'POST',
             data: {
               code: res.code
@@ -31,7 +31,7 @@ Page({
                 })
               } else {
                 wx.switchTab({
-                  url: '../index/index'
+                  url: '../xinghuo/xinghuo'
                 })
               }
             }

@@ -4,7 +4,11 @@ Page({
   data: {
 
   },
-
+    onPullDownRefresh: function () {
+        setTimeout(function(){
+            wx.stopPullDownRefresh();
+        },1000);
+    },
   cancle: function(e){
     // console.log(e.currentTarget);
     wx.request({
@@ -12,15 +16,18 @@ Page({
       method: "DELETE",
       header: { 'Cookie':'JSESSIONID=' + app.globalData.globalSession },
       success: function(res){
-        wx.showModal({
-          title: '提示',
-          content: '预约已取消',
-          success: function(){
-            wx.switchTab({
-              url: '../mine/mine'
-            })
+          if( res.statusCode == 200 ) {
+              wx.showModal({
+                  title: '提示',
+                  content: '预约已取消',
+                  success: function () {
+                      wx.switchTab({
+                          url: '../xinghuo/xinghuo'
+                      })
+                  }
+              });
           }
-        });
+  
       },
       fail: function(res){
         wx.showModal({

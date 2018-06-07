@@ -5,10 +5,11 @@
 }
 
 .teacher {
-  border: 1px solid grey;
+  border-bottom: 1px solid lightgrey;
   margin: auto;
   width: 320px;
   height: 200px;
+    opacity: 0.6;
 }
 
 .coming{

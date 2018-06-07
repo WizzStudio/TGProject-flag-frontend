@@ -3,9 +3,19 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    margin-top: 10px;
+    margin-top: 50px;
 }
-
+.input {
+    font-size: 16px;
+}
+.picker-content {
+     font-size: 16px;
+}
+.section {
+    display: flex;
+    flex-direction: row;
+    margin-top: 50px;
+}
 .btn {
     display: flex;
     flex-direction: row;
@@ -16,19 +26,34 @@
   margin: 20px;
 }
 .input {
-    border: 1px solid grey;
-    margin-top: 10px;
-    width: 95%;
+    position: absolute;
+    right: 50px;
+    direction: ltr;
+    opacity: 0.6;
+    text-align: right;
 }
-
+.cont {
+   margin-left: 50px;
+}
 .picker {
     display: flex;
     flex-direction: row;
-    border-bottom:  1px solid grey;
 }
-.picker_content{
+.picker-content{
+    position: absolute;
+    right: 50px;
     margin-left: 20px;
+    opacity: 0.6;
 }
-.section {
-    margin: 20px ;
-}
+/* .demo {
+    position: absolute;
+    right: 32px;
+    border: 10px solid white;
+    border-top-color: dimgrey;
+    opacity: 0.6;
+    width: 0;
+    height: 0;
+    margin-top: 10rpx;
+} */
+
+

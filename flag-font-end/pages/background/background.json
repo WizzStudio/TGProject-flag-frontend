@@ -1,3 +1,4 @@
 {
-    "navigationBarTitleText":"西电场地预约小程序"
+    "navigationBarTitleText":"西电场地预约小程序",
+    "backgroundTextStyle": "dark"
 }

@@ -1,26 +1,42 @@
-.container {
-    margin: 20px;
-}
-
 .userinfo {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-
 .userinfo-avatar {
   width: 128rpx;
   height: 128rpx;
   margin: 20rpx;
   border-radius: 50%;
 }
-
+.box {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-sizing: border-box;
+  font-size: 18px;
+}
 .section {
+    display: flex;
+    flex-direction: row;
     margin-top:50px;
+    /* justify-content: space-between; */
 }
 .type_button{
     border-radius: 10px;
     margin: 20px;
     padding: 0  60px;
-
-} 
+}
+.content {
+    padding-left: 50px;
+}
+.name, .student, .positions {
+    position: absolute;
+    right: 50px;
+    opacity: 0.6;
+}
+.btn {
+    margin-top: 60px;
+    border-radius: 6px;
+}

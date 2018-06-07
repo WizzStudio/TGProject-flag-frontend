@@ -1,36 +1,53 @@
 //mine.js
 //获取应用实例
-const app = getApp()
+const app = getApp();
 Page({
     data: {
+        name: '',
+        studentId: '',
+        positions: '',
         userInfo: {},
         hasUserInfo: false,
         canIUse: wx.canIUse('button.open-type.getUserInfo')
     },
     onPullDownRefresh: function () {
-                wx.showLoading()
-                setTimeout(function(){
-                    wx.hideLoading()
-                },1000)
+        setTimeout(function(){
+            wx.stopPullDownRefresh();
+        },1000);
     },
-    //事件处理函数
-    toIdentity: function () {
+
+    change_inf: function(){
         wx.navigateTo({
             url: '../identity/identity'
         })
     },
-    toManage:function () {
-        wx.navigateTo({
-            url: '../proceed/proceed',
-        })
-    },
-    toXingHuo:function(){
-        wx.navigateTo({
-            url: '../xinghuo/xinghuo',
-        })
-    },
-
-    onLoad: function () {
+    onShow: function () {
+        let name = wx.getStorageSync("name");
+        let studentId = wx.getStorageSync("studentId");
+        var index = wx.getStorageSync("index");
+  
+        if(name !== null && studentId !== null && index !== null){
+            this.setData({
+                name : name,
+                studentId : studentId,
+            })
+        
+        if(index == '0'){
+            this.setData({
+                positions: '社长/部长'
+            });
+        }
+        if(index == '1'){
+            this.setData({
+                positions: '副社长/副部长'
+            });
+        }
+        if(index == '2'){
+            this.setData({
+                positions: '干事'
+            });
+        }
+        }
         if (app.globalData.userInfo) {
             this.setData({
                 userInfo: app.globalData.userInfo,
@@ -59,11 +76,12 @@ Page({
         }
     },
     getUserInfo: function (e) {
-        console.log(e)
+        // console.log(e)
         app.globalData.userInfo = e.detail.userInfo
         this.setData({
             userInfo: e.detail.userInfo,
             hasUserInfo: true
         })
     }
-})
+
+});

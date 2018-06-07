@@ -2,9 +2,14 @@ var app = getApp();
 
 Page({
   data: {
-    message: '请先进行身份验证',
+    message: '',
     disabled: true
   },
+    onPullDownRefresh: function () {
+        setTimeout(function(){
+            wx.stopPullDownRefresh();
+        },1000);
+    },
   confine:function(e){
     var that = this;
     wx.request({
@@ -18,24 +23,28 @@ Page({
         },
         success:function(res){
           if(res.statusCode == 200){
-            console.log(res.data);
-            that.setData({
-               message: res.data.message,
-               disabled: false
-           });
-        }
-       },
+            // console.log(res.data);
+                if ( res.data.status == 0 ) {
+                    // that.setData({
+                        // message: res.data.message,
+                    // });
+                        wx.navigateTo({
+                            url: '../xinghuo_space/xinghuo_space'
+                        });
+                }
+                }
+                if ( res.data.status == 1 ) { 
+                    that.setData({
+                        message: res.data.message,
+                    });
+                }
+        },
        fail: function(err){
-         console.log(err.data);
          that.setData({
            message: err.data.value
          });
        }
     });
-  },
-  navigation: function(){
-      wx.navigateTo({
-          url: '../xinghuo_space/xinghuo_space'
-      });
   }
+ 
 });
