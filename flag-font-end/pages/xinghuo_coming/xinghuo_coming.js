@@ -23,10 +23,10 @@ Page({
        this.setData({
          field: e.detail.value
        });
-      console.log(e.detail.value)
+    //   console.log(e.detail.value)
     },
     radioChange_opreations: function(e){
-      console.log(e.detail.value)
+    //   console.log(e.detail.value)
        this.setData({
          operations: e.detail.value
        })
@@ -75,7 +75,7 @@ Page({
           },
           method : 'POST',
           success : function(res){
-            console.log(res.data);
+            // console.log(res.data);
             if(res.statusCode == 200){
               wx.showModal({
                 title: '温馨提示',

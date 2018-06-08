@@ -43,7 +43,7 @@ Page({
   formSubmit:function(e){
     console.log(e.detail.value);
     var that = this;
-    if (e.detail.value.teamName == null || e.detail.value.teamName == '') {
+    if (e.detail.value.activityName == null || e.detail.value.activityName == '') {
         wx.showModal({
             title: '提示',
             content: '请完善表单信息!',
