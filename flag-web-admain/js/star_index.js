@@ -50,6 +50,7 @@ function send() {
                 url: "http://flagadmin.zhengsj.top/councilOrder/count",
                 success: function (res, status, xhr) {
                     if (status == 'success') {
+                        // console.log(res.data);
                         for (let i = 0; i < res.data.length; i++) {
                             var placeName = res.data[i].name;
                             var count = res.data[i].count;
@@ -70,9 +71,8 @@ function send() {
                             url: "http://flagadmin.zhengsj.top/spaceApply/count",
                             success: function (res, status, xhr) {
                                 if (status == 'success') {
-                                    // console.log(res.data);
+                                    console.log(res.data);
                                     var starCount = res.data;
-
                                     noReviewTable += `
                                        <tr>
                                           <td>入驻申请</td>
