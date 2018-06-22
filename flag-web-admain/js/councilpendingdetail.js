@@ -19,12 +19,12 @@
     });
 	//处理返回的数据
 	function dealData(obj) {
-		// console.log(obj);
+		console.log(obj);
 		var teamName = obj.teamName;
 		var activityName = obj.activityName;
 		var activityForm = obj.activityForm;
-		var startTime = new Date(obj.startTime).toLocaleString('zh',{hour12:false}) + '<br>';
-		var endTime = new Date(obj.endTime).toLocaleString('zh',{hour12:false});
+		var startTime = obj.startTime.split("T")[0] + '-' + obj.startTime.split("T")[1].substring(0,8) + '<br>';
+		var endTime = obj.endTime.split("T")[0] + '-' + obj.endTime.split("T")[1].substring(0,8);
 		var councilName = obj.councilName;
 		var peopleSchoolIn = obj.peopleSchoolIn;
 		var peopleSchoolOut = obj.peopleSchoolOut;
@@ -87,7 +87,8 @@
 						    	<td colspan="4">${securityMeasure}</td>
 						    </tr>
 						    <tr>
-						   
+						    
+
 						    	<td >是否借用设备及借用用途</td>
 						    	<td colspan="4">${equipment}</td>
 						    </tr>

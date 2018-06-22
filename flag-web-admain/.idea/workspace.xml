@@ -152,7 +152,7 @@
   <component name="NodePackageJsonFileManager">
     <packageJsonPaths />
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="676" />
     <option name="width" value="697" />
     <option name="height" value="735" />
@@ -268,16 +268,15 @@
       <workItem from="1528931142050" duration="605000" />
       <workItem from="1529074811661" duration="598000" />
       <workItem from="1529151595872" duration="599000" />
-      <workItem from="1529662800183" duration="10177000" />
+      <workItem from="1529662800183" duration="10420000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="116651000" />
+    <option name="totallyTimeSpent" value="116894000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="true" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.1532738" />
       <window_info anchor="bottom" id="TODO" order="6" />

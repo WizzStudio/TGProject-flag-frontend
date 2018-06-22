@@ -23,12 +23,13 @@ $(document).ready(function() {
 	
 		for(let i = 0; i < arr.length; i++) {
 			teamName = arr[i].teamName;
-			var time = arr[i].createTime;
-			var  dateTime = new Date(time).toLocaleString('zh',{hour12:false});
+			time = arr[i].createTime;
+            var dateYear = time.split('T')[0];
+            var dateTime = time.split('T')[1].substring(0, 8);
 			id = arr[i].id;
 				var str = `
 				<div class="border">
-					<span class="teamname">${teamName}  ${dateTime}-------<a href="star_pending_detail.html?data=${id}"  class="please">申请入驻</a></span>
+					<span class="teamname">${teamName}  ${dateYear} ${dateTime}----<a href="star_pending_detail.html?data=${id}"  class="please">申请入驻</a></span>
 				</div>
 		`;
 			$("#team").append(str);
