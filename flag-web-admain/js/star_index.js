@@ -71,15 +71,16 @@ function send() {
                             url: "http://flagadmin.zhengsj.top/spaceApply/count",
                             success: function (res, status, xhr) {
                                 if (status == 'success') {
-                                    console.log(res.data);
+                                    // console.log(res.data);
                                     var starCount = res.data;
+                                    if(starCount !== 0){
                                     noReviewTable += `
                                        <tr>
                                           <td>入驻申请</td>
                                           <td id="count">${starCount}</td>
                                           <td><a href="star_pending.html">查看</a></td>
                                         </tr>
-                                    </tbody>`;
+                                    </tbody>`;}
                                     elementTableCouncil.innerHTML = noReviewTable;
                                     yesReviewTable = `<thead>
                                  <tr class="head">
@@ -112,15 +113,14 @@ function send() {
                 success: function (res, status, xhr) {
                     if (status == 'success') {
                         for(let i = 0;i< res.data.length; i++){
-                            var dateYear = res.data[i].createTime.split('T')[0];
-                            var dateTime = res.data[i].createTime.split('T')[1].substring(0, 8);
+                            var dateTime = new Date(res.data[i].createTime).toLocaleString('zh',{hour12:false});
                             var teamName = res.data[i].teamName;
                             var oid = res.data[i].oid;
                             yesReviewTable += `
                                      <tr>
                                         <td>会务室申请</td>
                                         <td>${teamName}</td>
-                                        <td>${dateYear} ${dateTime}</td>
+                                        <td>${dateTime}</td>
                                         <td><a href="councilpendingdetail.html?data=${oid}">查看</a></td>
                                      </tr>  `;
                                 }
@@ -134,7 +134,7 @@ function send() {
                                 if (status == 'success') {
                                     // console.log(res.data);
                                     for(let i = 0;i< res.data.length; i++){
-                                        var dateYear = res.data[i].createTime.split('T')[0];
+
                                         var dateTime = res.data[i].createTime.split('T')[1].substring(0, 8);
                                         var teamName = res.data[i].teamName;
                                         var id = res.data[i].id;
@@ -142,7 +142,7 @@ function send() {
                                      <tr>
                                         <td>众创空间入驻申请</td>
                                         <td>${teamName}</td>
-                                        <td>${dateYear}  ${dateTime}</td>
+                                        <td>${dateTime}</td>
                                         <td><a href="star_pending_detail.html?data=${id}">查看</a></td>
                                      </tr>  `;
                                     }
