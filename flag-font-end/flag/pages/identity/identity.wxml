@@ -1,0 +1,31 @@
+
+<view class="box">
+    <form bindsubmit='formSubmit' bindreset='fromReset' name = 'form'>
+      <view class='section'>
+          <text class="cont">姓名：</text>
+        <input  name='name' value="{{name}}" type="text" placeholder='请输入你的姓名' bindinput='input_name' class='input'></input>
+      </view>
+        <view class="section">
+            <view class="cont">学号：</view>
+            <view >
+                <input name='studentId' type="number" value="{{studentId}}" placeholder='请输入你的学号'  bindinput='input_number'
+                       class='input'> </input>
+            </view>
+        </view>
+        <view class="section">
+        <view class='picker'>
+             <view class="cont">担任职务：</view>
+            <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+                <view class="picker-content">
+                    {{ array[index] }}
+                </view>
+            </picker>
+        </view>
+      </view>
+        <view class = "btn">
+          <view class="btn_section">
+            <button class='button' type='primary' form-type='submit'>保存</button>
+          </view>
+        </view>
+    </form>
+</view>

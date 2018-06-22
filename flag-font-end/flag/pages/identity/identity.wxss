@@ -1,0 +1,59 @@
+
+.box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 50px;
+}
+.input {
+    font-size: 16px;
+}
+.picker-content {
+     font-size: 16px;
+}
+.section {
+    display: flex;
+    flex-direction: row;
+    margin-top: 50px;
+}
+.btn {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin: 10px;
+}
+.btn_section {
+  margin: 20px;
+}
+.input {
+    position: absolute;
+    right: 50px;
+    direction: ltr;
+    opacity: 0.6;
+    text-align: right;
+}
+.cont {
+   margin-left: 50px;
+}
+.picker {
+    display: flex;
+    flex-direction: row;
+}
+.picker-content{
+    position: absolute;
+    right: 50px;
+    margin-left: 20px;
+    opacity: 0.6;
+}
+/* .demo {
+    position: absolute;
+    right: 32px;
+    border: 10px solid white;
+    border-top-color: dimgrey;
+    opacity: 0.6;
+    width: 0;
+    height: 0;
+    margin-top: 10rpx;
+} */
+
+

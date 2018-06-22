@@ -27,8 +27,8 @@ Page({
             var objData =  res.data.data;
             var obj = [];
             for(let i = 0; i< objData.length;  i++ ){
-                let dateTime = new Date(objData[i].startTime).toLocaleString('zh',{hour12:false}).substring(0, 9) ;
-                let dayTime = new Date(objData[i].startTime).toLocaleString('zh', { hour12: false }).substring(10, 15) + '~' + new Date(objData[i].endTime).toLocaleString('zh', { hour12: false }).substring(10, 15) ;
+                let dateTime = objData[i].startTime.substring(0, 10) ;
+                let dayTime = objData[i].startTime.substring(11, 16) + '~' + objData[i].endTime.substring(11, 16) ;
             let Time =  dateTime +' '+ dayTime;
             let activityName = objData[i].activityName;
             if (objData[i].state == 2  ){

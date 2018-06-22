@@ -1,0 +1,20 @@
+.section {
+    margin: 20px;
+}
+
+.input {
+    border: 1px solid grey;
+    width: 80%;
+    border-radius: 6px;
+}
+
+.section1 {
+    margin-top: 60px;
+    padding: 80px 0;
+
+    text-align: center;
+    width: 80%;
+
+}
+
+

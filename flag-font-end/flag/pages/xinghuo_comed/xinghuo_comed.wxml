@@ -1,0 +1,7 @@
+<view class='container'>
+    <view class='section'>请先进行身份认证</view>
+    <input name='input' class='input' placeholder='请输入身份认证码' bindblur='confine'></input>
+    <view class='section1'>
+        <view>{{message}}</view>
+    </view>
+</view>

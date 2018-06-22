@@ -1,0 +1,23 @@
+.section {
+    margin: 10px;
+    height: 230px;
+    width: 90%;
+    border: 2px solid grey;
+    border-radius: 10px;
+}
+
+.content {
+    position: absolute;
+    top:0;
+    bottom: 0;
+   left: 0;
+   right: 0;
+   margin: auto;
+   height: 430px;
+   width:80%;
+}
+
+.back{
+    margin-top: 100px;
+    background-color: green; 
+}

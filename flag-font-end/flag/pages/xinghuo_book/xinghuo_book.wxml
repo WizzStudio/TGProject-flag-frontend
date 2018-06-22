@@ -1,0 +1,81 @@
+<view class=' containerBox'>
+    <view class='notice'>
+        <view class="notice_contents">注意事项如下：</view>
+        <text class="notice-content">
+        {{notice}}
+        </text>
+    </view>
+    <form bindsubmit='formSubmit' bindreset='formReset'>
+        <view class='section'>
+            <view class='content'>团队名称: </view>
+            <input class='put1' name='teamName' type="text" placeholder="请输入团队名称"></input>
+        </view>
+        <view class='section'>
+            <view class='content'>活动名称: </view>
+            <input class='put1' name='activityName' type="text" placeholder="请输入活动名称" required="required" ></input>
+        </view>
+        <view class='section'>
+            <view class='content'>活动形式:</view>
+            <input class='put1' name='activityForm' type="text" placeholder="请输入活动形式"></input>
+        </view>
+        <view class="section">
+            <view class="content">借用日期</view>
+            <picker mode="date" value="{{date}}" name = "date" start="2018-06-07" end="2020-09-01" bindchange="bindDateChange">
+                <view class="picker">
+                    {{date}}
+                </view>
+            </picker>
+        </view>
+        <view class="section">
+            <view class="content">开始时间</view>
+            <picker mode="time" value="{{time}}" name = "time" start="06:00" end="22:30" bindchange="bindTimeChange">
+                <view class="picker">
+                    {{time}}
+                </view>
+            </picker>
+        </view>
+        <view class="section">
+            <view class="content">结束时间</view>
+            <picker mode="time" value="{{time1}}" name="time1" start="{{pretime}}" end="22:30" bindchange="bindTimeChange1">
+                <view class="picker">
+                    {{time1}}
+                </view>
+            </picker>
+        </view>
+        <!--<view class='section'>-->
+          
+        <!--</view>-->
+        <view class="section">
+            <view class="content">借用房室:</view>
+            <picker name = 'cid' bindchange = 'get_room' value="{{index}}" range = "{{room}}" range-key= "optKey">
+                <view class="picker"> {{room[index]["optKey"]}} </view>
+            </picker>
+        </view>
+        <view class="content-person"> 参与人数</view>
+        <view class="section">
+                <view class="content1">校内人数：</view>
+                <input class="put1" name='peopleSchoolIn' type="number" placeholder="请输入校内人数"></input>
+        </view>
+        <view class="section">
+            <view class="content1">校外人数：</view>
+            <input class="put1" name='peopleSchoolOut' type="number" placeholder="请输入校外人数"></input>
+        </view>
+        <view class=''>
+            <view class='content content-security'>安全措施：</view>
+            <textarea class='puts'  name='securityMeasure' placeholder="150字以内" maxlength="150" autofocus></textarea>
+        </view>
+        <view class="section">
+           <view class="content">安全负责人：</view>
+           <input class='put1' name='securityAdmin' type="text" placeholder="请输入负责人姓名"></input>
+        </view>
+        <view class='section'>
+            <view class='content'>负责人联系电话：</view>
+            <input class='put1' name='phone' type="number" placeholder="请输入联系电话"></input>
+        </view>
+        <view class=''>
+            <view class='content content-security'>是否借用设备及借用用途：</view>
+            <textarea class='puts' name='equipment' placeholder="150字以内" autofocus></textarea>
+        </view>
+        <button form-type='submit' class='btn' type='primary'>预约</button>
+    </form>
+</view>
