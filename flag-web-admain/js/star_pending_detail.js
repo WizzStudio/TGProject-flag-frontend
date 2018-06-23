@@ -22,6 +22,7 @@ var temp_oid = oid;
 			var studentId = obj.studentId;
 			var phone = obj.phone;
 			var field = obj.field;
+			var operations = obj.operations;
 			var academy = obj. academy;
 			var discipline = obj.discipline;
 			var adminKind = obj.adminKind;
@@ -51,7 +52,7 @@ var temp_oid = oid;
 			var description = obj.description;
 			var content = obj.content;
 			var plan = obj.plan;
-			var note = obj.operations;
+			var note = obj.other;
 			var state = obj.uid; //状态？
 			var table = ` 
 					<table class="table table-bordered">
@@ -96,14 +97,13 @@ var temp_oid = oid;
 						   		<td colspan="2">${website}</td>
 					   	 	</tr>
 					   	 	<tr>
-					   	 		
 						      <td> 专业领域 </td>
 						    	<td class="spaceAround" align="center" colspan="5">${field}</td>
 						    </tr>   
 						    <tr>
 						      <td>运营方式</td>
 						      <td align="center"  colspan="5">
-						      	${adminKind}
+						      	${operations}
 						      </td>
 						    </tr>
 						    <tr>

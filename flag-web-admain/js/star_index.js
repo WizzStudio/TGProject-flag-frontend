@@ -147,7 +147,7 @@ function send() {
                             success: function (res, status, xhr) {
                                 if (status == 'success') {
                                     // console.log(res.data);
-                                    for(let i = 0;i< res.data.length; i++){
+                                    for(let i = res.data.length-1;i >= 0; i--){
                                         var dateTime = new Date(res.data[i].createTime).toLocaleString('zh',{hour12:false});
                                         var teamName = res.data[i].teamName;
                                         var id = res.data[i].id;
