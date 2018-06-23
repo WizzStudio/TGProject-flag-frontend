@@ -16,7 +16,11 @@ function send() {
             }
         });
     });
-};
+}
+function formatTime(time) {
+    let currentTime = time.replace(/\-/g,'/');
+    return currentTime.replace(/T/g,' ');
+}
 	$(function() {
         var noReviewTable = `<thead>
                                 <tr class="head">
@@ -127,7 +131,9 @@ function send() {
                 success: function (res, status, xhr) {
                     if (status == 'success') {
                         for(let i = 0;i< res.data.length; i++){
-                            var dateTime = new Date(res.data[i].createTime).toLocaleString('zh',{hour12:false});
+                            let currentTime = formatTime(res.data[i].createTime);
+                            // console.log(currentTime);
+                            var dateTime = new Date(currentTime).toLocaleString('zh',{hour12:false});
                             var teamName = res.data[i].teamName;
                             var oid = res.data[i].oid;
                             yesReviewTable += `
@@ -148,7 +154,9 @@ function send() {
                                 if (status == 'success') {
                                     // console.log(res.data);
                                     for(let i = res.data.length-1;i >= 0; i--){
-                                        var dateTime = new Date(res.data[i].createTime).toLocaleString('zh',{hour12:false});
+                                        let currentTime = formatTime(res.data[i].createTime);
+                                        console.log(currentTime);
+                                        var dateTime = new Date(currentTime).toLocaleString('zh',{hour12:false});
                                         var teamName = res.data[i].teamName;
                                         var id = res.data[i].id;
                                         yesReviewTable += `

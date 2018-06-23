@@ -1,3 +1,7 @@
+function formatTime(time) {
+    let currentTime = time.replace(/\-/g,'/');
+    return currentTime.replace(/T/g,' ');
+}
 
 window.onload = function() {
     var thisURL = document.URL.split("?")[1];
@@ -50,7 +54,7 @@ window.onload = function() {
 			success: function(data,status) {
             	if(status == 'success') {
                     var obj = data;
-                    console.log(obj);
+                    // console.log(obj);
                     dealData(obj);
                 }
 			},
@@ -97,7 +101,9 @@ window.onload = function() {
 
             date = time.substring(0,10);
             for (let i = 0; i < item.length; i++) {
-                borrowingTime = new Date(item[i].startTime).toLocaleString('zh',{hour12:false}).substring(10,15) + '-' + new Date(item[i].endTime).toLocaleString('zh',{hour12:false}).substring(10,15);
+                let currentStartTime = formatTime(item[i].startTime);
+                let currentEndTime = formatTime(item[i].endTime);
+                borrowingTime = new Date(currentStartTime).toLocaleString('zh',{hour12:false}).substring(10,15) + '-' + new Date(currentEndTime).toLocaleString('zh',{hour12:false}).substring(10,15);
                 teamName = item[i].teamName;
                 eventName = item[i].activityName;
                 id = item[i].id;
@@ -130,8 +136,10 @@ window.onload = function() {
             if (completed.length != 0) {
                 $("#time:eq(0)").empty();
                 for (let j = 0; j < completed.length && j<5; j++) {
-                    var completeTime = new Date(completed[j].startTime).toLocaleString('zh',{hour12:false}).substring(10,15) + "-" +
-                        new Date(completed[j].endTime).toLocaleString('zh',{hour12:false}).substring(10,15);
+                    let currentCompletedStartTime = completed[j].startTime;
+                    let currentCompletedEndTime = completed[j].endTime;
+                    var completeTime = new Date(currentCompletedStartTime).toLocaleString('zh',{hour12:false}).substring(10,15) + "-" +
+                        new Date(currentCompletedEndTime).toLocaleString('zh',{hour12:false}).substring(10,15);
                     var str = `${completeTime}<br>`;
                     $("#time:eq(0)").append(str);
                 }

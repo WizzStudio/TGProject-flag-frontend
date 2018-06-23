@@ -1,4 +1,8 @@
-// localStorage.setItem('verification','eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjowLCJleHAiOjE1MjY4MDM1MjAsInVzZXJJZCI6MX0.DxB_HW2bpoiuXHr3Gc8lfupOLxO7x2tPWwgrJvBfZ6I');
+
+function formatTime(time) {
+    let currentTime = time.replace(/\-/g,'/');
+    return currentTime.replace(/T/g,' ');
+}
 $(document).ready(function() {
 		$.ajax({
 			beforeSend : function(request) {
@@ -24,7 +28,8 @@ $(document).ready(function() {
 		for(let i = 0; i < arr.length; i++) {
 			teamName = arr[i].teamName;
 			var time = arr[i].createTime;
-            var dateTime = new Date(time).toLocaleString('zh',{hour12:false});
+			let currentTime = formatTime(time);
+            var dateTime = new Date(currentTime).toLocaleString('zh',{hour12:false});
 			id = arr[i].id;
 				var str = `
 				<div class="border">
