@@ -94,11 +94,10 @@ window.onload = function() {
             var teamName;
             var eventName;
             var approvalStatus;
-            var month = new Date(time).getMonth() + 1;
-            date = new Date(time).getFullYear() + "-" + month + "-" + new Date(time).getDate();
+
+            date = time.substring(0,10);
             for (let i = 0; i < item.length; i++) {
-                borrowingTime = new Date(item[i].startTime).getHours() + ":" + new Date(item[i].startTime).getMinutes() + "-" +
-                    new Date(item[i].endTime).getHours() + ":" + new Date(item[i].endTime).getMinutes();
+                borrowingTime = new Date(item[i].startTime).toLocaleString('zh',{hour12:false}).substring(10,15) + '-' + new Date(item[i].endTime).toLocaleString('zh',{hour12:false}).substring(10,15);
                 teamName = item[i].teamName;
                 eventName = item[i].activityName;
                 id = item[i].id;
@@ -131,8 +130,8 @@ window.onload = function() {
             if (completed.length != 0) {
                 $("#time:eq(0)").empty();
                 for (let j = 0; j < completed.length && j<5; j++) {
-                    var completeTime = new Date(completed[j].startTime).getHours() + ":" + new Date(completed[j].startTime).getMinutes() + "-" +
-                        new Date(completed[j].endTime).getHours() + ":" + new Date(completed[j].endTime).getMinutes();
+                    var completeTime = new Date(completed[j].startTime).toLocaleString('zh',{hour12:false}).substring(10,15) + "-" +
+                        new Date(completed[j].endTime).toLocaleString('zh',{hour12:false}).substring(10,15);
                     var str = `${completeTime}<br>`;
                     $("#time:eq(0)").append(str);
                 }

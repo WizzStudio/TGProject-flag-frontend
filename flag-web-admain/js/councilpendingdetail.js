@@ -16,6 +16,10 @@
                 alert("错误：" + jqXHR.status);
             }
         });
+        var identity  = localStorage.getItem('username');
+        if(identity === 'xdxhadmin1'){
+            $('#dontSure').css("display","none");
+        }
     });
 	//处理返回的数据
 	function dealData(obj) {
@@ -23,8 +27,8 @@
 		var teamName = obj.teamName;
 		var activityName = obj.activityName;
 		var activityForm = obj.activityForm;
-		var startTime = obj.startTime.split("T")[0] + '-' + obj.startTime.split("T")[1].substring(0,8) + '<br>';
-		var endTime = obj.endTime.split("T")[0] + '-' + obj.endTime.split("T")[1].substring(0,8);
+        var startTime = new Date(obj.startTime).toLocaleString('zh',{hour12:false}) + '<br>';
+        var endTime = new Date(obj.endTime).toLocaleString('zh',{hour12:false});
 		var councilName = obj.councilName;
 		var peopleSchoolIn = obj.peopleSchoolIn;
 		var peopleSchoolOut = obj.peopleSchoolOut;

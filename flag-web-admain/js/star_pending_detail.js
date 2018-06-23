@@ -1,7 +1,6 @@
 var thisURL = document.URL;
 var oid = thisURL.split("=")[1];
 var temp_oid = oid;
-// console.log(oid);
 	//向后台请求数据
 	$(function() {
 		$.ajax({
@@ -185,6 +184,10 @@ var temp_oid = oid;
 					$("#top").append("二级已同意");
 				else if(state == 5)
 					$("#top").append("一级已同意");
+	}
+	var identity  = localStorage.getItem('username');
+	if(identity === 'xdxhadmin1'){
+		$('#dontSure').css("display","none");
 	}
     //提交信息
     var status = -1;
