@@ -42,6 +42,7 @@ function send() {
             this.style.background = "red";
             this.selected = "true";
             yesReviewElement.selected = "false";
+
             $.ajax({
                 beforeSend: function (request) {
                     request.setRequestHeader("Authorization", localStorage.getItem('verification'));
@@ -92,6 +93,20 @@ function send() {
                                     $("#noReview").attr("disabled", true);
                                     $("#yesReview").removeAttr("disabled");
                                 }
+                            },
+                            error: function(res){
+                                // console.log(res);
+                                elementTableCouncil.innerHTML = noReviewTable + `</tbody>`;
+                                yesReviewTable = `<thead>
+                                 <tr class="head">
+                                   <th></th>
+                                   <th>申请团队</th>
+                                   <th>申请时间</th>
+                                   <th>详细信息</th></tr>
+                               </thead>
+                              <tbody>`;
+                                $("#noReview").attr("disabled", true);
+                                $("#yesReview").removeAttr("disabled");
                             }
                         });
                     }
@@ -154,6 +169,13 @@ function send() {
                                           <th>详细信息</th></tr>
                                      </thead>
                                      <tbody>`;
+                                $("#yesReview").attr("disabled",true);
+                                $("#noReview").removeAttr("disabled");
+                            },
+                            error: function(res){
+                                // console.log(res);
+                                yesReviewTable += `</tbody>` ;
+                                elementTableStar.innerHTML = yesReviewTable;
                                 $("#yesReview").attr("disabled",true);
                                 $("#noReview").removeAttr("disabled");
                             }
